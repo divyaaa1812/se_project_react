@@ -1,5 +1,4 @@
 .header {
-  background-color: aqua;
   display: flex;
   justify-content: space-between;
   min-height: 40px;
@@ -18,5 +17,5 @@
 }
 
 .header__avatar-image {
-  padding-left: 100px;
+  padding-left: 60px;
 }
