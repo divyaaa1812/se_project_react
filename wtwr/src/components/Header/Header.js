@@ -1,6 +1,4 @@
 import "./Header.css";
-import headerLogo from "../images/Logo.png";
-import avatar from "../images/avatar.png";
 
 function Header() {
   return (
@@ -8,7 +6,7 @@ function Header() {
       <header className="header">
         <div className="header__logo">
           <div>
-            <img src={headerLogo} alt="WhatToWearLogo" />
+            <img src="/images/Logo.png" alt="WhatToWearLogo" />
           </div>
           <div className="header__date">Date</div>
         </div>
@@ -18,7 +16,7 @@ function Header() {
           </div>
           <div>Divya Bharathi</div>
           <div className="header__avatar-image">
-            <img src={avatar} alt="profile Picture" />
+            <img src="/images/avatar.png" alt="profile Picture" />
           </div>
         </div>
       </header>

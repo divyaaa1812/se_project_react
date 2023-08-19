@@ -1,0 +1,18 @@
+.main {
+  padding: 0 20px;
+}
+
+.weather__info {
+  position: relative;
+}
+
+.weather__info-image {
+  width: 100%;
+}
+
+.weather__info-temp {
+  position: absolute;
+  left: 16px;
+  top: 10px;
+  font-size: 36px;
+}
