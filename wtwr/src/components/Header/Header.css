@@ -1,0 +1,23 @@
+.header {
+  background-color: aqua;
+  display: flex;
+  justify-content: space-between;
+  min-height: 40px;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__avatar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__avatar-image {
+  padding-left: 100px;
+}
