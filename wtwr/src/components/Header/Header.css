@@ -17,3 +17,7 @@
   align-items: center;
   gap: 20px;
 }
+
+.header__avatar-image {
+  padding-left: 60px;
+}

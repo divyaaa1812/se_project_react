@@ -4,7 +4,9 @@ import WeatherCard from "./WeatherCard/WeatherCard";
 function Main() {
   return (
     <>
-      <WeatherCard />
+      <main className="main">
+        <WeatherCard day={true} type="nightrain" />
+      </main>
     </>
   );
 }
