@@ -22,12 +22,12 @@ const weatherConditions = [
     type: "cloudynight",
   },
   {
-    url: "/images/night/moonnight.png",
+    url: "../images/night/moonnight.png",
     day: true,
     type: "moonnight",
   },
   {
-    url: "/images/night/nightrain.png",
+    url: "../images/night/nightrain.png",
     day: true,
     type: "nightrain",
   },
