@@ -2,32 +2,32 @@ import "./WeatherCard.css";
 
 const weatherConditions = [
   {
-    url: "/images/day/cloudyday.png",
+    url: require("../images/day/cloudyday.png"),
     day: true,
     type: "cloudyday",
   },
   {
-    url: "/images/day/daysun.png",
+    url: require("../images/day/daysun.png"),
     day: true,
     type: "daysun",
   },
   {
-    url: "/images/day/rainday.png",
+    url: require("../images/day/rainday.png"),
     day: true,
     type: "rainday",
   },
   {
-    url: "/images/night/cloudynight.png",
+    url: require("../images/night/cloudynight.png"),
     day: true,
     type: "cloudynight",
   },
   {
-    url: "../images/night/moonnight.png",
+    url: require("../images/night/moonnight.png"),
     day: true,
     type: "moonnight",
   },
   {
-    url: "../images/night/nightrain.png",
+    url: require("../images/night/nightrain.png"),
     day: true,
     type: "nightrain",
   },
