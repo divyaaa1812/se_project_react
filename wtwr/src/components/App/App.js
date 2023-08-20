@@ -5,10 +5,11 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 
 function App() {
+  const tempvalue = "75° F";
   return (
     <>
       <Header />
-      <Main />
+      <Main tempvalue={tempvalue} />
       <Footer />
     </>
   );
