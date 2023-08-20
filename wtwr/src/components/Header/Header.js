@@ -14,7 +14,7 @@ function Header() {
           <div>
             <button type="text">+ Add Clothes</button>
           </div>
-          <div>Divya Bharathi</div>
+          <div>Divya</div>
           <div className="header__avatar-image">
             <img src="/images/avatar.png" alt="profile Picture" />
           </div>
