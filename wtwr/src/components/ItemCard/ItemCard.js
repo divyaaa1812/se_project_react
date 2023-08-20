@@ -1,9 +1,14 @@
 import "./ItemCard.css";
-const ItemCard = () => {
+
+const ItemCard = ({ item }) => {
+  console.log(item);
   return (
-    <>
-      <div className="itemcardcontainer">This is Item card component</div>
-    </>
+    <div>
+      <div>
+        <img src={item.link} className="card_image" />
+      </div>
+      <div className="card_name">{item.name}</div>
+    </div>
   );
 };
 
