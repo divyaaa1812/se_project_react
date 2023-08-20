@@ -42,7 +42,7 @@ function WeatherCard({ day, type }) {
   return (
     <div>
       <section className="weather__info" id="weather">
-        <div className="weather__info-temp">68F</div>
+        <div className="weather__info-temp">48F</div>
         <img
           className="weather__info-image"
           src={imageSrcUrl}
