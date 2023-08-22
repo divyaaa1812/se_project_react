@@ -1,7 +1,6 @@
 import "./ItemCard.css";
 
 const ItemCard = ({ item }) => {
-  console.log(item);
   return (
     <div>
       <div>

@@ -1,0 +1,15 @@
+.input-field {
+  width: 440px;
+  border-top: none;
+  border-bottom: 1px solid;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.form__field {
+  padding-bottom: 24px;
+}
+
+.form__field-text {
+  margin: 0px;
+}
