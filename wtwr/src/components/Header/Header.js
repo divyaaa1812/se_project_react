@@ -2,7 +2,7 @@ import "./Header.css";
 import avatar from "../images/avatar.png";
 import logo from "../images/Logo.png";
 
-function Header() {
+function Header({ onOpenModal }) {
   return (
     <>
       <header className="header">
@@ -14,7 +14,9 @@ function Header() {
         </div>
         <div className="header__avatar">
           <div>
-            <button type="text">+ Add Clothes</button>
+            <button type="text" onClick={onOpenModal}>
+              + Add Clothes
+            </button>
           </div>
           <div>Divya</div>
           <div className="header__avatar-image">
