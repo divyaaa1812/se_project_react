@@ -4,7 +4,7 @@ import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import { defaultClothingItems } from "../../utils/constants";
 
-function Main({ tempvalue }) {
+function Main({ tempvalue, onCardClick }) {
   return (
     <>
       <main className="main">
@@ -13,7 +13,7 @@ function Main({ tempvalue }) {
           Today is {tempvalue} / You may want to wear:
           <div className="card_items">
             {defaultClothingItems.map((item) => {
-              return <ItemCard item={item} />;
+              return <ItemCard item={item} onCardClick={onCardClick} />;
             })}
           </div>
         </section>

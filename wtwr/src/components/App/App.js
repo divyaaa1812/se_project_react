@@ -1,25 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import ItemModal from "../ItemModal/ItemModal";
+import getWeatherForecast from "../../utils/weatherapi";
 
 function App() {
   const tempvalue = "75° F";
   const [openModal, setOpenModal] = useState("");
   const handleOpenModal = () => {
-    setOpenModal("Open");
+    setOpenModal("openModal");
   };
   const handleCloseModal = () => {
     setOpenModal("");
   };
+  const [selectedCard, setSelectedCard] = useState({});
+  const handleCardClick = (card) => {
+    setOpenModal("previewModal");
+    setSelectedCard(card);
+  };
+
+  useEffect(() => {
+    getWeatherForecast.then((data) => {
+      console.log(data);
+    });
+  });
+
   return (
     <>
       <Header onOpenModal={handleOpenModal} />
-      <Main tempvalue={tempvalue} />
-      <Footer />{" "}
-      {openModal === "Open" && (
+      <Main tempvalue={tempvalue} onCardClick={handleCardClick} />
+      <Footer />
+      {openModal === "openModal" && (
         <ModalWithForm
           title="New garment"
           name="addnewgarment"
@@ -70,6 +84,9 @@ function App() {
             </div>
           </div>
         </ModalWithForm>
+      )}
+      {openModal === "previewModal" && (
+        <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
       )}
     </>
   );

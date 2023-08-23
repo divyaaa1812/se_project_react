@@ -1,0 +1,16 @@
+.modal__preview-content {
+  position: relative;
+  background-color: white;
+  padding: 0px;
+  max-width: 396px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.modal__image {
+  width: 100%;
+}
+
+.modal__preview-text {
+  padding: 0 20px;
+}
