@@ -1,14 +1,17 @@
 .weather__info {
   position: relative;
+  height: 80px;
 }
 
 .weather__info-image {
   width: 100%;
+  height: 100%;
 }
 
 .weather__info-temp {
   position: absolute;
-  left: 16px;
-  top: 10px;
   font-size: 36px;
+  top: 10px;
+  left: 20px;
+  color: white;
 }
