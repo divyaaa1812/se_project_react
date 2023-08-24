@@ -9,7 +9,7 @@ import {
   getWeatherForecast,
   getTemperatureValue,
   getLocationValue,
-} from "../../utils/weatherapi";
+} from "../../utils/weatherApi";
 
 function App() {
   //Hook to open and closemodal
