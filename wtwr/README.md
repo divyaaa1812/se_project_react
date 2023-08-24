@@ -1,4 +1,4 @@
-# Project 3: Around The U.S.
+# Project 4: What To Wear?.
 
 ### Overview
 
@@ -9,7 +9,7 @@
 
 ### Intro
 
-This Webpage is designed using React JS. Purpose of the webpage is to display garments to wear based on the weather condition in a city from United States.
+This Webpage is designed using React JS.The idea of the application is pretty simple - we make a call to an API, which then responds with the daily weather forecast. We collect the weather data, process it, and then based on the forecast, we recommend suitable clothing to the user.
 
 Technologies Used: React JS
 
