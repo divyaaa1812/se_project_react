@@ -19,6 +19,7 @@ export const getWeatherForecast = () => {
 
 export const getWeatherIcon = (data) => {
   const imageIcon = data.weather[0].icon;
+  console.log(imageIcon);
   return imageIcon;
 };
 
