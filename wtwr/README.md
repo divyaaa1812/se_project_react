@@ -19,7 +19,7 @@ Technologies Used: React JS
 
 ### Website Link
 
-- https://divyaaa1812.github.io/se_project_react
+- [Link to the project on Figma](https://divyaaa1812.github.io/se_project_react)
 
 ### Images
 
