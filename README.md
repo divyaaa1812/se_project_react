@@ -22,10 +22,10 @@ The idea of the application is pretty simple - we make a call to an API, which t
 ### Images
 
 Desktop View:
-![Desktop View](./src/components/images/Website/WTWR.png)
+![Desktop View](https://github.com/divyaaa1812/se_project_react/blob/main/Website/WTWR.png?raw=true)
 
 Popup when click on Add Clothes button:
-![Popup when click on Add Clothes button](./src/components/images/Website/AddClothespopup.png)
+![Popup when click on Add Clothes button](https://github.com/divyaaa1812/se_project_react/blob/main/Website/AddClothespopup.png?raw=true)
 
 Popup when user clicks on garmet image:
-![Popup when user clicks on garmet image](./src/components/images/Website/clickonImage.png)
+![Popup when user clicks on garmet image](https://github.com/divyaaa1812/se_project_react/blob/main/Website/clickonImage.png?raw=true)
