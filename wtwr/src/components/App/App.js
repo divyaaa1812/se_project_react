@@ -8,9 +8,11 @@ import ItemModal from "../ItemModal/ItemModal";
 import {
   getWeatherForecast,
   getTemperatureValue,
+  getLocationValue,
 } from "../../utils/weatherapi";
 
 function App() {
+  //Hook to open and closemodal
   const [openModal, setOpenModal] = useState("");
   const handleOpenModal = () => {
     setOpenModal("openModal");
@@ -18,12 +20,13 @@ function App() {
   const handleCloseModal = () => {
     setOpenModal("");
   };
+  //Hook to render preview image modal when card is selected on page
   const [selectedCard, setSelectedCard] = useState({});
   const handleCardClick = (card) => {
     setOpenModal("previewModal");
     setSelectedCard(card);
   };
-
+  //Hook to set temp value on page
   const [temp, setTemp] = useState(0);
   useEffect(() => {
     getWeatherForecast().then((data) => {
@@ -31,10 +34,18 @@ function App() {
       setTemp(temperatureValue);
     });
   }, []);
+  //Hook to set location value on page
+  const [location, setLocation] = useState("");
+  useEffect(() => {
+    getWeatherForecast().then((data) => {
+      const locationValue = getLocationValue(data);
+      setLocation(locationValue);
+    });
+  }, []);
 
   return (
     <>
-      <Header onOpenModal={handleOpenModal} />
+      <Header locationValue={location} onOpenModal={handleOpenModal} />
       <Main tempvalue={temp} onCardClick={handleCardClick} />
       <Footer />
       {openModal === "openModal" && (
@@ -90,7 +101,10 @@ function App() {
         </ModalWithForm>
       )}
       {openModal === "previewModal" && (
-        <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
+        <ItemModal
+          selectedCard={selectedCard}
+          onClose={handleCloseModal}
+        ></ItemModal>
       )}
     </>
   );
