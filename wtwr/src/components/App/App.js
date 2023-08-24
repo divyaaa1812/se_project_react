@@ -5,10 +5,12 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
-import getWeatherForecast from "../../utils/weatherapi";
+import {
+  getWeatherForecast,
+  getTemperatureValue,
+} from "../../utils/weatherapi";
 
 function App() {
-  const tempvalue = "75° F";
   const [openModal, setOpenModal] = useState("");
   const handleOpenModal = () => {
     setOpenModal("openModal");
@@ -22,16 +24,18 @@ function App() {
     setSelectedCard(card);
   };
 
+  const [temp, setTemp] = useState(0);
   useEffect(() => {
-    getWeatherForecast.then((data) => {
-      console.log(data);
+    getWeatherForecast().then((data) => {
+      const temperatureValue = getTemperatureValue(data);
+      setTemp(temperatureValue);
     });
-  });
+  }, []);
 
   return (
     <>
       <Header onOpenModal={handleOpenModal} />
-      <Main tempvalue={tempvalue} onCardClick={handleCardClick} />
+      <Main tempvalue={temp} onCardClick={handleCardClick} />
       <Footer />
       {openModal === "openModal" && (
         <ModalWithForm
