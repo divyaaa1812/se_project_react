@@ -1,4 +1,4 @@
-# Project 4: What To Wear?.
+# Project 4: What To Wear?
 
 ### Overview
 
@@ -19,7 +19,7 @@ Technologies Used: React JS
 
 ### Website Link
 
-- [Link to the project on Figma](https://divyaaa1812.github.io/se_project_react)
+- [Link to the webpage](https://divyaaa1812.github.io/se_project_react)
 
 ### Images
 
