@@ -1,5 +1,12 @@
 # WTWR (What to Wear?)
 
+### Overview
+
+- About the project
+- Figma
+- Website Link
+- Images
+
 ## About the project
 
 The idea of the application is pretty simple - we make a call to an API, which then responds with the daily weather forecast. We collect the weather data, process it, and then based on the forecast, we recommend suitable clothing to the user.
@@ -15,6 +22,10 @@ The idea of the application is pretty simple - we make a call to an API, which t
 ### Images
 
 Desktop View:
-![Desktop View](./Website/WTWR.png)
-![Popup when click on Add Clothes button](./Website/AddClothespopup.png)
-![Popup when garmet image](./Website/clickonImage.png)
+![Desktop View](./src/components/images/Website/WTWR.png)
+
+Popup when click on Add Clothes button:
+![Popup when click on Add Clothes button](./src/components/images/Website/AddClothespopup.png)
+
+Popup when user clicks on garmet image:
+![Popup when user clicks on garmet image](./src/components/images/Website/clickonImage.png)

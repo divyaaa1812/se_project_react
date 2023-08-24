@@ -26,8 +26,8 @@ Technologies Used: React JS
 Desktop View:
 ![Desktop View](./src/components/images/Website/WTWR.png)
 
-Popup when click on Add Clothes button
+Popup when click on Add Clothes button:
 ![Popup when click on Add Clothes button](./src/components/images/Website/AddClothespopup.png)
 
-Popup when user clicks on garmet image
+Popup when user clicks on garmet image:
 ![Popup when user clicks on garmet image](./src/components/images/Website/clickonImage.png)
