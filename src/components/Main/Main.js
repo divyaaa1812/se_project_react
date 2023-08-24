@@ -16,7 +16,7 @@ function Main({ tempvalue, onCardClick }) {
   }, [tempvalue]);
 
   const filteredItems = defaultClothingItems.filter((item) => {
-    return item.weather.toLocaleLowerCase === weatherType;
+    return item.weather.toLocaleLowerCase() === weatherType;
   });
 
   return (

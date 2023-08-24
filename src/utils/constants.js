@@ -39,32 +39,32 @@ export const defaultClothingItems = [
 
 export const weatherConditions = [
   {
-    url: require(".././components/images/day/cloudyday.png"),
+    url: require("../images/day/cloudyday.png"),
     day: true,
     type: "cloudyday",
   },
   {
-    url: require(".././components/images/day/daysun.png"),
+    url: require("../images/day/daysun.png"),
     day: true,
     type: "daysun",
   },
   {
-    url: require(".././components/images/day/rainday.png"),
+    url: require("../images/day/rainday.png"),
     day: true,
     type: "rainday",
   },
   {
-    url: require(".././components/images/night/cloudynight.png"),
+    url: require("../images/night/cloudynight.png"),
     day: false,
     type: "cloudynight",
   },
   {
-    url: require(".././components/images/night/moonnight.png"),
+    url: require("../images/night/moonnight.png"),
     day: false,
     type: "moonnight",
   },
   {
-    url: require(".././components/images/night/nightrain.png"),
+    url: require("../images/night/nightrain.png"),
     day: false,
     type: "nightrain",
   },

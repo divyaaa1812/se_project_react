@@ -1,6 +1,6 @@
 import "./Header.css";
-import avatar from "../images/avatar.png";
-import logo from "../images/Logo.png";
+import avatar from "../../images/avatar.png";
+import logo from "../../images/Logo.png";
 
 function Header({ locationValue, onOpenModal }) {
   const currentDate = new Date().toLocaleString("default", {
