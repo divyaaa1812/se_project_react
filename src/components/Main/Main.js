@@ -7,7 +7,7 @@ import { defaultClothingItems } from "../../utils/constants";
 function Main({ tempvalue, onCardClick }) {
   const weatherType = useMemo(() => {
     if (tempvalue >= 86) {
-      return "hot";
+      return "sunny";
     } else if (tempvalue >= 66 && tempvalue <= 85) {
       return "warm";
     } else if (tempvalue <= 65) {
@@ -16,7 +16,7 @@ function Main({ tempvalue, onCardClick }) {
   }, [tempvalue]);
 
   const filteredItems = defaultClothingItems.filter((item) => {
-    return item.weather === weatherType;
+    return item.weather.toLocaleLowerCase === weatherType;
   });
 
   return (

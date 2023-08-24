@@ -20,7 +20,6 @@ export const getWeatherForecast = () => {
 //extract temp and loca values from api response
 
 export const getTemperatureValue = (data) => {
-  console.log(data);
   const temperatureValue = data.main.temp;
   return temperatureValue;
 };
