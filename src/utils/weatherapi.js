@@ -1,5 +1,4 @@
 //daa4659a14cca866944d7bffab42b490
-//https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}
 
 const latitude = 37.67;
 const longitude = -121.8;
@@ -21,6 +20,7 @@ export const getWeatherForecast = () => {
 //extract temp and loca values from api response
 
 export const getTemperatureValue = (data) => {
+  console.log(data);
   const temperatureValue = data.main.temp;
   return temperatureValue;
 };
