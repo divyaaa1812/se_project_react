@@ -4,6 +4,7 @@ const ItemCard = ({ item, onCardClick }) => {
   return (
     <div>
       <div>
+        <div className="card_name">{item.name}</div>
         <img
           src={item.link}
           className="card_image"
@@ -12,7 +13,6 @@ const ItemCard = ({ item, onCardClick }) => {
           }}
         />
       </div>
-      <div className="card_name">{item.name}</div>
     </div>
   );
 };

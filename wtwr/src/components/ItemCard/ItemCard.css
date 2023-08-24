@@ -1,10 +1,14 @@
 .card_image {
-  width: 328px;
+  max-width: 328px;
   height: 328px;
+  width: 100%;
   border-radius: 10px;
   margin-top: 20px;
 }
 
 .card_name {
   text-align: center;
+  position: relative;
+  top: 50px;
+  width: 100%;
 }
