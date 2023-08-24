@@ -32,7 +32,7 @@ function App() {
   useEffect(() => {
     getWeatherForecast().then((data) => {
       const temperatureValue = getTemperatureValue(data);
-      setTemp(temperatureValue);
+      setTemp(Math.ceil(temperatureValue));
     });
   }, []);
   //Hook to set location value on page

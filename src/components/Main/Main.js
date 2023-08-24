@@ -7,7 +7,7 @@ import { defaultClothingItems } from "../../utils/constants";
 function Main({ tempvalue, weatherImage, onCardClick }) {
   const weatherType = useMemo(() => {
     if (tempvalue >= 86) {
-      return "sunny";
+      return "hot";
     } else if (tempvalue >= 66 && tempvalue <= 85) {
       return "warm";
     } else if (tempvalue <= 65) {
@@ -16,13 +16,13 @@ function Main({ tempvalue, weatherImage, onCardClick }) {
   }, [tempvalue]);
 
   const filteredItems = defaultClothingItems.filter((item) => {
-    return item.weather.toLocaleLowerCase() === weatherType;
+    return item.weather === weatherType;
   });
 
   return (
     <>
       <main className="main">
-        <WeatherCard day={false} type={weatherImage} temperature={tempvalue} />
+        <WeatherCard type={weatherImage} temperature={tempvalue} />
         <section className="card_section">
           Today is {tempvalue}° / You may want to wear:
           <div className="card_items">

@@ -18,7 +18,6 @@ export const getWeatherForecast = () => {
 };
 
 export const getWeatherIcon = (data) => {
-  console.log(data);
   const imageIcon = data.weather[0].icon;
   return imageIcon;
 };
@@ -31,7 +30,6 @@ export const getTemperatureValue = (data) => {
 };
 
 export const getLocationValue = (data) => {
-  console.log(data);
   const locValue = data.name;
   return locValue;
 };
