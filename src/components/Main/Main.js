@@ -4,7 +4,7 @@ import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import { defaultClothingItems } from "../../utils/constants";
 
-function Main({ tempvalue, onCardClick }) {
+function Main({ tempvalue, weatherImage, onCardClick }) {
   const weatherType = useMemo(() => {
     if (tempvalue >= 86) {
       return "sunny";
@@ -22,7 +22,7 @@ function Main({ tempvalue, onCardClick }) {
   return (
     <>
       <main className="main">
-        <WeatherCard day={false} type="nightrain" temperature={tempvalue} />
+        <WeatherCard day={false} type={weatherImage} temperature={tempvalue} />
         <section className="card_section">
           Today is {tempvalue}° / You may want to wear:
           <div className="card_items">

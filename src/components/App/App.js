@@ -9,6 +9,7 @@ import {
   getWeatherForecast,
   getTemperatureValue,
   getLocationValue,
+  getWeatherIcon,
 } from "../../utils/weatherApi";
 
 function App() {
@@ -43,10 +44,22 @@ function App() {
     });
   }, []);
 
+  const [weatherImage, setWeatherImage] = useState("");
+  useEffect(() => {
+    getWeatherForecast().then((data) => {
+      const weatherIcon = getWeatherIcon(data);
+      setWeatherImage(weatherIcon);
+    });
+  }, []);
+
   return (
     <>
       <Header locationValue={location} onOpenModal={handleOpenModal} />
-      <Main tempvalue={temp} onCardClick={handleCardClick} />
+      <Main
+        tempvalue={temp}
+        weatherImage={weatherImage}
+        onCardClick={handleCardClick}
+      />
       <Footer />
       {openModal === "openModal" && (
         <ModalWithForm
