@@ -11,7 +11,7 @@
 .weather__info-temp {
   position: absolute;
   font-size: 36px;
-  top: 10px;
-  left: 20px;
+  top: 15px;
+  left: 15px;
   color: white;
 }
