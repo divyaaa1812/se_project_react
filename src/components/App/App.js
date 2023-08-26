@@ -52,6 +52,11 @@ function App() {
     });
   }, []);
 
+  const [weatherTypeValue, setWeatherTypeValue] = useState("");
+  const handleRadioButton = (e) => {
+    setWeatherTypeValue(e.currentTarget.value);
+  };
+
   return (
     <>
       <Header locationValue={location} onOpenModal={handleOpenModal} />
@@ -98,15 +103,30 @@ function App() {
             <p className="form__field-text">Select weather type: </p>
             <div>
               <div>
-                <input type="radio" value="Hot" defaultChecked />
+                <input
+                  type="radio"
+                  value="Hot"
+                  checked={weatherTypeValue === "Hot"}
+                  onChange={handleRadioButton}
+                />
                 <label>Hot</label>
               </div>
               <div>
-                <input type="radio" value="Warm" />
+                <input
+                  type="radio"
+                  value="Warm"
+                  checked={weatherTypeValue === "Warm"}
+                  onChange={handleRadioButton}
+                />
                 <label>Warm</label>
               </div>
               <div>
-                <input type="radio" value="Cold" />
+                <input
+                  type="radio"
+                  value="Cold"
+                  checked={weatherTypeValue === "Cold"}
+                  onChange={handleRadioButton}
+                />
                 <label>Cold</label>
               </div>
             </div>
