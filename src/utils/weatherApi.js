@@ -23,6 +23,18 @@ export const getWeatherIcon = (data) => {
   return imageIcon;
 };
 
+export const getSunriseTime = (data) => {
+  const sunriseTime = data.sys.sunrise;
+  console.log(sunriseTime);
+  return sunriseTime;
+};
+
+export const getSunsetTime = (data) => {
+  const sunsetTime = data.sys.sunset;
+  console.log(sunsetTime);
+  return sunsetTime;
+};
+
 //extract temp and loca values from api response
 
 export const getTemperatureValue = (data) => {
