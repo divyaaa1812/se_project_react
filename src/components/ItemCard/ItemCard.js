@@ -1,6 +1,6 @@
 import "./ItemCard.css";
 
-const ItemCard = ({ key, item, onCardClick }) => {
+const ItemCard = ({ item, onCardClick }) => {
   return (
     <div>
       <div>

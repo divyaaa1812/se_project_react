@@ -26,10 +26,10 @@ function Main({ tempvalue, weatherImage, onCardClick }) {
         <section className="card_section">
           Today is {tempvalue}° / You may want to wear:
           <div className="card_items">
-            {filteredItems.map((item, index) => {
+            {filteredItems.map((item) => {
               return (
                 <ItemCard
-                  key={`item-${index}`}
+                  key={item._id}
                   item={item}
                   onCardClick={onCardClick}
                 />
