@@ -98,15 +98,15 @@ function App() {
             <p className="form__field-text">Select weather type: </p>
             <div>
               <div>
-                <input type="radio" value="Hot" checked={true} />
+                <input type="radio" value="Hot" defaultChecked />
                 <label>Hot</label>
               </div>
               <div>
-                <input type="radio" value="Warm" checked={false} />
+                <input type="radio" value="Warm" />
                 <label>Warm</label>
               </div>
               <div>
-                <input type="radio" value="Cold" checked={false} />
+                <input type="radio" value="Cold" />
                 <label>Cold</label>
               </div>
             </div>
