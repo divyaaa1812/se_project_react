@@ -20,25 +20,19 @@ function Main({ tempvalue, weatherImage, onCardClick }) {
   });
 
   return (
-    <>
-      <main className="main">
-        <WeatherCard type={weatherImage} temperature={tempvalue} />
-        <section className="card_section">
-          Today is {tempvalue}° / You may want to wear:
-          <div className="card_items">
-            {filteredItems.map((item) => {
-              return (
-                <ItemCard
-                  key={item._id}
-                  item={item}
-                  onCardClick={onCardClick}
-                />
-              );
-            })}
-          </div>
-        </section>
-      </main>
-    </>
+    <main className="main">
+      <WeatherCard type={weatherImage} temperature={tempvalue} />
+      <section className="card_section">
+        Today is {tempvalue}° / You may want to wear:
+        <div className="card_items">
+          {filteredItems.map((item) => {
+            return (
+              <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
+            );
+          })}
+        </div>
+      </section>
+    </main>
   );
 }
 

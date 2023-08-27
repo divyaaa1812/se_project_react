@@ -15,44 +15,42 @@ import {
 function App() {
   //Hook to open and closemodal
   const [openModal, setOpenModal] = useState("");
+  const [selectedCard, setSelectedCard] = useState({});
+  const [temp, setTemp] = useState(0);
+  const [location, setLocation] = useState("");
+  const [weatherImage, setWeatherImage] = useState("");
+  const [weatherTypeValue, setWeatherTypeValue] = useState("");
+
+  useEffect(() => {
+    async function fetchWeatherData() {
+      try {
+        const data = await getWeatherForecast();
+        const temperatureValue = getTemperatureValue(data);
+        const locationValue = getLocationValue(data);
+        const weatherIcon = getWeatherIcon(data);
+        setTemp(Math.ceil(temperatureValue));
+        setLocation(locationValue);
+        setWeatherImage(weatherIcon);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    fetchWeatherData();
+  }, []);
+
   const handleOpenModal = () => {
     setOpenModal("openModal");
   };
   const handleCloseModal = () => {
     setOpenModal("");
   };
-  //Hook to render preview image modal when card is selected on page
-  const [selectedCard, setSelectedCard] = useState({});
+
   const handleCardClick = (card) => {
     setOpenModal("previewModal");
     setSelectedCard(card);
   };
-  //Hook to set temp value on page
-  const [temp, setTemp] = useState(0);
-  useEffect(() => {
-    getWeatherForecast().then((data) => {
-      const temperatureValue = getTemperatureValue(data);
-      setTemp(Math.ceil(temperatureValue));
-    });
-  }, []);
-  //Hook to set location value on page
-  const [location, setLocation] = useState("");
-  useEffect(() => {
-    getWeatherForecast().then((data) => {
-      const locationValue = getLocationValue(data);
-      setLocation(locationValue);
-    });
-  }, []);
 
-  const [weatherImage, setWeatherImage] = useState("");
-  useEffect(() => {
-    getWeatherForecast().then((data) => {
-      const weatherIcon = getWeatherIcon(data);
-      setWeatherImage(weatherIcon);
-    });
-  }, []);
-
-  const [weatherTypeValue, setWeatherTypeValue] = useState("");
   const handleRadioButton = (e) => {
     setWeatherTypeValue(e.currentTarget.value);
   };

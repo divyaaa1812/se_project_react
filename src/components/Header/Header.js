@@ -9,29 +9,27 @@ function Header({ locationValue, onOpenModal }) {
   });
 
   return (
-    <>
-      <header className="header">
-        <div className="header__logo">
-          <div>
-            <img src={logo} alt="WhatToWearLogo" />
-          </div>
-          <div className="header__date">
-            {currentDate}, {locationValue}
-          </div>
+    <header className="header">
+      <div className="header__logo">
+        <div>
+          <img src={logo} alt="WhatToWearLogo" />
         </div>
-        <div className="header__avatar">
-          <div>
-            <button type="text" onClick={onOpenModal}>
-              + Add Clothes
-            </button>
-          </div>
-          <div>Divya</div>
-          <div className="header__avatar-image">
-            <img src={avatar} alt="profile Picture" />
-          </div>
+        <div className="header__date">
+          {currentDate}, {locationValue}
         </div>
-      </header>
-    </>
+      </div>
+      <div className="header__avatar">
+        <div>
+          <button type="text" onClick={onOpenModal}>
+            + Add Clothes
+          </button>
+        </div>
+        <div>Divya</div>
+        <div className="header__avatar-image">
+          <img src={avatar} alt="profile Picture" />
+        </div>
+      </div>
+    </header>
   );
 }
 
