@@ -21,3 +21,16 @@
 .header__avatar-image {
   padding-left: 60px;
 }
+
+.header_profile_name_link {
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.header__date {
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+}

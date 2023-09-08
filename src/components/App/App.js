@@ -12,6 +12,7 @@ import {
   getWeatherIcon,
 } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../../Contexts/CurrentTemperatureUnitContext";
+import { Switch, Route } from "react-router-dom/cjs/react-router-dom";
 
 function App() {
   //Hook to open and closemodal
@@ -71,11 +72,16 @@ function App() {
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
         <Header locationValue={location} onOpenModal={handleOpenModal} />
-        <Main
-          tempvalue={temp}
-          weatherImage={weatherImage}
-          onCardClick={handleCardClick}
-        />
+        <Switch>
+          <Route exact path="/">
+            <Main
+              tempvalue={temp}
+              weatherImage={weatherImage}
+              onCardClick={handleCardClick}
+            />
+          </Route>
+          <Route path="/profile">I'm profile component</Route>
+        </Switch>
         <Footer />
         {openModal === "openModal" && (
           <ModalWithForm
