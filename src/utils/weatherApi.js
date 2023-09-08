@@ -39,7 +39,10 @@ export const getSunsetTime = (data) => {
 
 export const getTemperatureValue = (data) => {
   const temperatureValue = data.main.temp;
-  return temperatureValue;
+  const FtempUnit = `${Math.round(temperatureValue)}°F`;
+  const CtempUnit = `${Math.round(((temperatureValue - 32) * 5) / 9)}°C`;
+  const tempUnits = { temperatureWithUnits: { F: FtempUnit, C: CtempUnit } };
+  return { temperatureValue, tempUnits };
 };
 
 export const getLocationValue = (data) => {

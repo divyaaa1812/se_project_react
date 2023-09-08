@@ -17,7 +17,7 @@ function App() {
   //Hook to open and closemodal
   const [openModal, setOpenModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
-  const [temp, setTemp] = useState(0);
+  const [temp, setTemp] = useState({});
   const [location, setLocation] = useState("");
   const [weatherImage, setWeatherImage] = useState("");
   const [weatherTypeValue, setWeatherTypeValue] = useState("");
@@ -30,7 +30,7 @@ function App() {
         const temperatureValue = getTemperatureValue(data);
         const locationValue = getLocationValue(data);
         const weatherIcon = getWeatherIcon(data);
-        setTemp(Math.ceil(temperatureValue));
+        setTemp({ temperatureValue });
         setLocation(locationValue);
         setWeatherImage(weatherIcon);
       } catch (err) {
