@@ -34,19 +34,19 @@
 
 .switch__active {
   color: white;
-  font-size: 14px;
+  text-align: center;
 }
 
 .switch__text-F {
   position: absolute;
   left: 14px;
-  top: -6px;
-  color: white;
+  top: -7px;
+  font-size: 14px;
 }
 
 .switch__text-C {
   position: absolute;
   top: -7px;
   left: 40px;
-  color: white;
+  font-size: 14px;
 }

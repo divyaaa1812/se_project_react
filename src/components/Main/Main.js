@@ -14,9 +14,10 @@ function Main({ tempvalue, weatherImage, onCardClick }) {
     CurrentTemperatureUnitContext
   );
   const temp =
-    (temperatureUnit &&
-      temperatureUnit.temperatureWithUnits?.[currentTemperatureUnit]) ||
-    900;
+    (temperatureUnit && temperatureUnit.temperatureWithUnits)?.[
+      currentTemperatureUnit
+    ] || 900;
+  console.log(temp);
   const weatherType = useMemo(() => {
     if (temperatureInDigits >= 86 || temperatureInDigits >= 30) {
       return "hot";

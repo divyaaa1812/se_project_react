@@ -12,7 +12,8 @@ import {
   getWeatherIcon,
 } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../../Contexts/CurrentTemperatureUnitContext";
-import { Switch, Route } from "react-router-dom/cjs/react-router-dom";
+import { Switch, Route } from "react-router-dom";
+import Profile from "../Profile/Profile";
 
 function App() {
   //Hook to open and closemodal
@@ -80,7 +81,9 @@ function App() {
               onCardClick={handleCardClick}
             />
           </Route>
-          <Route path="/profile">I'm profile component</Route>
+          <Route path="/profile">
+            <Profile onCardClick={handleCardClick} />
+          </Route>
         </Switch>
         <Footer />
         {openModal === "openModal" && (

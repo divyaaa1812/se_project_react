@@ -1,0 +1,12 @@
+.profile {
+  display: flex;
+}
+
+.profile-sidebar {
+  display: flex;
+  max-width: 229px;
+  width: 100%;
+  padding: 0 20px;
+  margin-top: 40px;
+  gap: 20px;
+}
