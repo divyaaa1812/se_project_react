@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemModal from "../ItemModal/ItemModal";
 import {
   getWeatherForecast,
@@ -14,6 +14,7 @@ import {
 import CurrentTemperatureUnitContext from "../../Contexts/CurrentTemperatureUnitContext";
 import { Switch, Route } from "react-router-dom";
 import Profile from "../Profile/Profile";
+import { getItems, addItem, deleteItem } from "../../utils/Api";
 
 function App() {
   //Hook to open and closemodal
@@ -22,8 +23,8 @@ function App() {
   const [temp, setTemp] = useState({});
   const [location, setLocation] = useState("");
   const [weatherImage, setWeatherImage] = useState("");
-  const [weatherTypeValue, setWeatherTypeValue] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [clothingItems, setClothingItems] = useState([]);
 
   useEffect(() => {
     async function fetchWeatherData() {
@@ -43,6 +44,16 @@ function App() {
     fetchWeatherData();
   }, []);
 
+  useEffect(() => {
+    getItems()
+      .then((data) => {
+        setClothingItems(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   const handleOpenModal = () => {
     setOpenModal("openModal");
   };
@@ -55,16 +66,24 @@ function App() {
     setSelectedCard(card);
   };
 
-  const handleRadioButton = (e) => {
-    setWeatherTypeValue(e.currentTarget.value);
-  };
-
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "F") {
       setCurrentTemperatureUnit("C");
     } else {
       setCurrentTemperatureUnit("F");
     }
+  };
+
+  const onAddItem = (values) => {
+    console.log(values);
+    addItem(values)
+      .then((data) => {
+        setClothingItems([data, ...clothingItems]);
+        handleCloseModal();
+      })
+      .catch((error) => {
+        console.error(error.status);
+      });
   };
 
   return (
@@ -82,76 +101,19 @@ function App() {
             />
           </Route>
           <Route path="/profile">
-            <Profile onCardClick={handleCardClick} />
+            <Profile
+              onCardClick={handleCardClick}
+              clothingItems={clothingItems}
+            />
           </Route>
         </Switch>
         <Footer />
         {openModal === "openModal" && (
-          <ModalWithForm
-            title="New garment"
-            name="addnewgarment"
-            buttonText="Add garmet"
-            onClose={handleCloseModal}
-          >
-            <div className="form__field">
-              <label>
-                Name
-                <div>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    className="input-field"
-                  ></input>
-                </div>
-              </label>
-            </div>
-            <div className="form__field">
-              <label>
-                Image
-                <div>
-                  <input
-                    type="text"
-                    name="link"
-                    placeholder="ImageURL"
-                    className="input-field"
-                  ></input>
-                </div>
-              </label>
-            </div>
-            <div className="form__field">
-              <p className="form__field-text">Select weather type: </p>
-              <div>
-                <div>
-                  <input
-                    type="radio"
-                    value="Hot"
-                    checked={weatherTypeValue === "Hot"}
-                    onChange={handleRadioButton}
-                  />
-                  <label>Hot</label>
-                </div>
-                <div>
-                  <input
-                    type="radio"
-                    value="Warm"
-                    checked={weatherTypeValue === "Warm"}
-                    onChange={handleRadioButton}
-                  />
-                  <label>Warm</label>
-                </div>
-                <div>
-                  <input
-                    type="radio"
-                    value="Cold"
-                    checked={weatherTypeValue === "Cold"}
-                    onChange={handleRadioButton}
-                  />
-                  <label>Cold</label>
-                </div>
-              </div>
-            </div>
-          </ModalWithForm>
+          <AddItemModal
+            handleCloseModal={handleCloseModal}
+            onAddItem={onAddItem}
+            isOpen={openModal === "openModal"}
+          />
         )}
         {openModal === "previewModal" && (
           <ItemModal
