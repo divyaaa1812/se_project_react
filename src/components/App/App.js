@@ -98,6 +98,7 @@ function App() {
               tempvalue={temp}
               weatherImage={weatherImage}
               onCardClick={handleCardClick}
+              clothingItems={clothingItems}
             />
           </Route>
           <Route path="/profile">
