@@ -13,7 +13,7 @@ import {
 } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import { Switch, Route } from "react-router-dom";
-import Profile from "../Profile/Profile";
+import Profile from "../Profile/profile";
 import { getItems, addItem, deleteItem } from "../../utils/Api";
 
 function App() {
