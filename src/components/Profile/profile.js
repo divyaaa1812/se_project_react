@@ -18,4 +18,4 @@ const profile = ({ onCardClick, clothingItems }) => {
   );
 };
 
-export default Profile;
+export default profile;
