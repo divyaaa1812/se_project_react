@@ -11,7 +11,7 @@ import {
   getLocationValue,
   getWeatherIcon,
 } from "../../utils/weatherApi";
-import CurrentTemperatureUnitContext from "../../Contexts/CurrentTemperatureUnitContext";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import { Switch, Route } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import { getItems, addItem, deleteItem } from "../../utils/Api";
