@@ -1,8 +1,8 @@
 import ClothesSection from "../ClothesSection/ClothesSection";
 import SideBar from "../SideBar/SideBar";
-import "./profile.css";
+import "./Profile.css";
 
-const profile = ({ onCardClick, clothingItems }) => {
+const Profile = ({ onCardClick, clothingItems }) => {
   return (
     <div className="profile">
       <div className="profile-sidebar">
@@ -18,4 +18,4 @@ const profile = ({ onCardClick, clothingItems }) => {
   );
 };
 
-export default profile;
+export default Profile;
