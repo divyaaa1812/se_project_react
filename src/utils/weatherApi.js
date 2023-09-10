@@ -19,19 +19,16 @@ export const getWeatherForecast = () => {
 
 export const getWeatherIcon = (data) => {
   const imageIcon = data.weather[0].icon;
-  console.log(imageIcon);
   return imageIcon;
 };
 
 export const getSunriseTime = (data) => {
   const sunriseTime = data.sys.sunrise;
-  console.log(sunriseTime);
   return sunriseTime;
 };
 
 export const getSunsetTime = (data) => {
   const sunsetTime = data.sys.sunset;
-  console.log(sunsetTime);
   return sunsetTime;
 };
 

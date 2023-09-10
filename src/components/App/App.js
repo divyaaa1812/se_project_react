@@ -91,11 +91,8 @@ function App() {
   };
 
   const onAddItem = (values) => {
-    console.log(values);
-    console.log(clothingItems);
     addItem(values)
       .then((data) => {
-        console.log(data);
         setClothingItems([data, ...clothingItems]);
         handleCloseModal();
       })
