@@ -33,7 +33,7 @@ function Header({ locationValue, onOpenModal }) {
           </button>
         </div>
         <div>
-          <Link to={"/profile"} className="header_profile_name_link">
+          <Link to={"/Profile"} className="header_profile_name_link">
             Divya
           </Link>
         </div>

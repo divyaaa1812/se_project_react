@@ -1,4 +1,5 @@
 import "./WeatherCard.css";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
 function WeatherCard({ type, temperature = "" }) {
   // const imageSrc = weatherConditions.filter((i) => {
