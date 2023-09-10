@@ -1,5 +1,4 @@
 const baseUrl = "http://localhost:3001";
-
 export const checkResponse = (res) => {
   if (res.ok) {
     return res.json();
@@ -29,7 +28,7 @@ export const addItem = ({ name, imageUrl, weather }) => {
   }).then(checkResponse);
 };
 
-// DELETE Items
+// Delete Items
 export const deleteItem = (selectedCard) => {
   return fetch(`${baseUrl}/items/${selectedCard._id} `, {
     method: "DELETE",

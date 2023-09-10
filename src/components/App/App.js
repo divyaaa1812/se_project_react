@@ -54,6 +54,22 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    const handleEscClose = (evt) => {
+      if (evt.key === "Escape") {
+        {
+          handleCloseModal();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, []);
+
   const handleOpenModal = () => {
     setOpenModal("openModal");
   };
@@ -75,8 +91,11 @@ function App() {
   };
 
   const onAddItem = (values) => {
+    console.log(values);
+    console.log(clothingItems);
     addItem(values)
       .then((data) => {
+        console.log(data);
         setClothingItems([data, ...clothingItems]);
         handleCloseModal();
       })
