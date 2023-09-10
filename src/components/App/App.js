@@ -75,7 +75,6 @@ function App() {
   };
 
   const onAddItem = (values) => {
-    console.log(values);
     addItem(values)
       .then((data) => {
         setClothingItems([data, ...clothingItems]);

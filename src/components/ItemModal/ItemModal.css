@@ -13,4 +13,20 @@
 
 .modal__preview-text {
   padding: 0 20px;
+  font-size: 20px;
+  font-family: Cabinet Grotesk;
+  font-weight: 700;
+}
+
+.modal__preview-del-text {
+  color: #ff4d00;
+  border: none;
+  background-color: white;
+  height: 24px;
+  margin-top: 20px;
+}
+
+.modal__preview-info {
+  display: flex;
+  justify-content: space-between;
 }
