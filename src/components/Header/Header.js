@@ -3,7 +3,6 @@ import avatar from "../../images/avatar.png";
 import logo from "../../images/Logo.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
-import { profile } from "../Profile/Profile";
 
 function Header({ locationValue, onOpenModal }) {
   const currentDate = new Date().toLocaleString("default", {
@@ -33,7 +32,7 @@ function Header({ locationValue, onOpenModal }) {
           </button>
         </div>
         <div>
-          <Link to={"/profile"} className="header_profile_name_link">
+          <Link to="/profile" className="header_profile_name_link">
             Divya
           </Link>
         </div>
