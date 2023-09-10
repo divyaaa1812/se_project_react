@@ -85,6 +85,20 @@ function App() {
       });
   };
 
+  const handleDeleteCard = (selectedCard) => {
+    deleteItem(selectedCard)
+      .then(() => {
+        const newClothesList = clothingItems.filter((cards) => {
+          return cards._id !== selectedCard._id;
+        });
+        setClothingItems(newClothesList);
+        handleCloseModal();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
       <CurrentTemperatureUnitContext.Provider
@@ -119,6 +133,7 @@ function App() {
           <ItemModal
             selectedCard={selectedCard}
             onClose={handleCloseModal}
+            handleDeleteCard={handleDeleteCard}
           ></ItemModal>
         )}
       </CurrentTemperatureUnitContext.Provider>
