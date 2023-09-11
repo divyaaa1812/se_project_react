@@ -31,64 +31,68 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
   }, [isOpen]);
 
   return (
-    <>
-      <ModalWithForm
-        title={"New garment"}
-        name="addnewgarment"
-        buttonText="Add garmet"
-        onClose={handleCloseModal}
-        isOpen={isOpen}
-        onSubmit={handleSubmit}
-      >
-        <div className="form__field">
-          <label>
-            Name
-            <div>
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                className="input-field"
-                value={name}
-                onChange={handleNameChange}
-              ></input>
-            </div>
-          </label>
-        </div>
-        <div className="form__field">
-          <label>
-            Image
-            <div>
-              <input
-                type="text"
-                name="imageUrl"
-                placeholder="ImageURL"
-                className="input-field"
-                value={imageUrl}
-                onChange={handleImageUrlChange}
-              ></input>
-            </div>
-          </label>
-        </div>
-        <div className="form__field">
-          <p className="form__field-text">Select weather type: </p>
+    <ModalWithForm
+      title={"New garment"}
+      name="addnewgarment"
+      buttonText="Add garmet"
+      onClose={handleCloseModal}
+      isOpen={isOpen}
+      onSubmit={handleSubmit}
+    >
+      <div className="form__field">
+        <label>
+          Name
           <div>
-            <div>
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              className="input-field"
+              value={name}
+              onChange={handleNameChange}
+            ></input>
+          </div>
+        </label>
+      </div>
+      <div className="form__field">
+        <label>
+          Image
+          <div>
+            <input
+              type="text"
+              name="imageUrl"
+              placeholder="ImageURL"
+              className="input-field"
+              value={imageUrl}
+              onChange={handleImageUrlChange}
+            ></input>
+          </div>
+        </label>
+      </div>
+      <div className="form__field">
+        <p className="form__field-text">Select weather type: </p>
+        <div>
+          <div>
+            <label>
               <input type="radio" value="Hot" onChange={handleRadioButton} />
-              <label>Hot</label>
-            </div>
-            <div>
+              Hot
+            </label>
+          </div>
+          <div>
+            <label>
               <input type="radio" value="Warm" onChange={handleRadioButton} />
-              <label>Warm</label>
-            </div>
-            <div>
+              Warm
+            </label>
+          </div>
+          <div>
+            <label>
               <input type="radio" value="Cold" onChange={handleRadioButton} />
-              <label>Cold</label>
-            </div>
+              Cold
+            </label>
           </div>
         </div>
-      </ModalWithForm>
-    </>
+      </div>
+    </ModalWithForm>
   );
 };
 

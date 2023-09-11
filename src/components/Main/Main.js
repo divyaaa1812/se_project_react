@@ -9,9 +9,7 @@ function Main({ tempvalue, weatherImage, onCardClick, clothingItems }) {
   const temperatureInDigits =
     temperatureData && Math.round(temperatureData.temperatureValue);
   const temperatureUnit = temperatureData && temperatureData.tempUnits;
-  const { currentTemperatureUnit } = React.useContext(
-    CurrentTemperatureUnitContext
-  );
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const temp =
     (temperatureUnit && temperatureUnit.temperatureWithUnits)?.[
       currentTemperatureUnit
