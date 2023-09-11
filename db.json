@@ -85,24 +85,14 @@
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
     },
     {
-      "name": "clap",
-      "imageUrl": "http://4.bp.blogspot.com/-4SuGDbjJEmE/VWFaLgFbiwI/AAAAAAABrV4/acKYcFKxba0/s1600/Toddler-Baby-Summer-Clothes-Cheap-Cheerful-Florence-Fred-Tesco-UK-Dubai-Children-Parenting-Lifestyle-Blog-The-Sandpit-002.jpg",
+      "name": "nidhi",
+      "imageUrl": "https://st.mngbcn.com/rcs/pics/static/T5/fotos/S20/53040511_85.jpg?ts=1558020842873&imwidth=480&imdensity=2",
       "_id": 17
     },
     {
       "name": "DB",
-      "imageUrl": "http://4.bp.blogspot.com/-4SuGDbjJEmE/VWFaLgFbiwI/AAAAAAABrV4/acKYcFKxba0/s1600/Toddler-Baby-Summer-Clothes-Cheap-Cheerful-Florence-Fred-Tesco-UK-Dubai-Children-Parenting-Lifestyle-Blog-The-Sandpit-002.jpg",
+      "imageUrl": "https://st.mngbcn.com/rcs/pics/static/T5/fotos/S20/53040511_85.jpg?ts=1558020842873&imwidth=480&imdensity=2",
       "_id": 18
-    },
-    {
-      "name": "DB",
-      "imageUrl": "https://st.mngbcn.com/rcs/pics/static/T5/fotos/S20/53040511_85.jpg?ts=1558020842873&imwidth=480&imdensity=2",
-      "_id": 19
-    },
-    {
-      "name": "Marine James",
-      "imageUrl": "https://st.mngbcn.com/rcs/pics/static/T5/fotos/S20/53040511_85.jpg?ts=1558020842873&imwidth=480&imdensity=2",
-      "_id": 20
     }
   ]
 }

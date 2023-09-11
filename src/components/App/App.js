@@ -55,11 +55,11 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const handleEscClose = (evt) => {
-      if (evt.key === "Escape") {
-        {
-          handleCloseModal();
-        }
+    if (!openModal) return;
+
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        handleCloseModal();
       }
     };
 
@@ -68,7 +68,7 @@ function App() {
     return () => {
       document.removeEventListener("keydown", handleEscClose);
     };
-  }, []);
+  }, [openModal]);
 
   const handleOpenModal = () => {
     setOpenModal("openModal");
