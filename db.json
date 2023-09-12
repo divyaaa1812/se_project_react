@@ -85,23 +85,6 @@
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
     },
     {
-      "name": "",
-      "imageUrl": "",
-      "_id": 20
-    },
-    {
-      "name": "test",
-      "imageUrl": "https://mms-images.out.customink.com/mms/images/catalog/951d44e28285b08ab667fa06506637e4/colors/176017/views/alt/front_medium_extended.jpg?autoNegate=1&design=djn0-00by-wu36&digest=0000000023&ixbg=%23ffffff&ixfm=jpeg&ixq=60&ixw=659&placeMax=1&placeMaxPct=0.8&placeUseProduct=1&placeUseView=front",
-      "weather": "Hot",
-      "_id": 21
-    },
-    {
-      "name": "Marine James",
-      "imageUrl": "https://mms-images.out.customink.com/mms/images/catalog/951d44e28285b08ab667fa06506637e4/colors/176017/views/alt/front_medium_extended.jpg?autoNegate=1&design=djn0-00by-wu36&digest=0000000023&ixbg=%23ffffff&ixfm=jpeg&ixq=60&ixw=659&placeMax=1&placeMaxPct=0.8&placeUseProduct=1&placeUseView=front",
-      "weather": "Hot",
-      "_id": 22
-    },
-    {
       "name": "Marine James",
       "imageUrl": "https://mms-images.out.customink.com/mms/images/catalog/951d44e28285b08ab667fa06506637e4/colors/176017/views/alt/front_medium_extended.jpg?autoNegate=1&design=djn0-00by-wu36&digest=0000000023&ixbg=%23ffffff&ixfm=jpeg&ixq=60&ixw=659&placeMax=1&placeMaxPct=0.8&placeUseProduct=1&placeUseView=front",
       "weather": "Hot",
