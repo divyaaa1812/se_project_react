@@ -95,6 +95,18 @@
       "imageUrl": "https://sp.yimg.com/ib/th?id=OP.AzTxPLNKjSrqDA474C474&o=5&pid=21.1&w=174&h=174",
       "weather": "Hot",
       "_id": 24
+    },
+    {
+      "name": "dress",
+      "imageUrl": "https://www.isueer.com/wp-content/uploads/2018/07/blue-ball-gown-prom-dress-0833-05.jpg",
+      "weather": "Cold",
+      "_id": 25
+    },
+    {
+      "name": "dress",
+      "imageUrl": "https://www.isueer.com/wp-content/uploads/2018/07/blue-ball-gown-prom-dress-0833-05.jpg",
+      "weather": "Hot",
+      "_id": 26
     }
   ]
 }
