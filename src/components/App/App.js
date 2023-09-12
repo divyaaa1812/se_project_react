@@ -91,10 +91,9 @@ function App() {
   };
 
   const onAddItem = (values) => {
-    console.log(values);
+    setIsLoading(true);
     addItem(values)
       .then((data) => {
-        // setIsLoading(true);
         setClothingItems([data, ...clothingItems]);
         handleCloseModal();
       })

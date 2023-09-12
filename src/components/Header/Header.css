@@ -34,3 +34,11 @@
   font-size: 20px;
   font-weight: 700;
 }
+
+.header__add-clothes-btn {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  border: none;
+  background: white;
+}

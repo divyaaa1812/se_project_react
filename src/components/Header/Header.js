@@ -27,7 +27,11 @@ function Header({ locationValue, onOpenModal }) {
           <ToggleSwitch />
         </div>
         <div>
-          <button type="text" onClick={onOpenModal}>
+          <button
+            type="text"
+            onClick={onOpenModal}
+            className="header__add-clothes-btn"
+          >
             + Add Clothes
           </button>
         </div>

@@ -76,19 +76,34 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen, buttonText }) => {
         <div>
           <div>
             <label>
-              <input type="radio" value="Hot" onChange={handleRadioButton} />
+              <input
+                name="weatherType"
+                type="radio"
+                value="Hot"
+                onChange={handleRadioButton}
+              />
               Hot
             </label>
           </div>
           <div>
             <label>
-              <input type="radio" value="Warm" onChange={handleRadioButton} />
+              <input
+                name="weatherType"
+                type="radio"
+                value="Warm"
+                onChange={handleRadioButton}
+              />
               Warm
             </label>
           </div>
           <div>
             <label>
-              <input type="radio" value="Cold" onChange={handleRadioButton} />
+              <input
+                name="weatherType"
+                type="radio"
+                value="Cold"
+                onChange={handleRadioButton}
+              />
               Cold
             </label>
           </div>
