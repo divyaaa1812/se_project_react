@@ -94,7 +94,7 @@ function App() {
     console.log(values);
     addItem(values)
       .then((data) => {
-        setIsLoading(true);
+        // setIsLoading(true);
         setClothingItems([data, ...clothingItems]);
         handleCloseModal();
       })
@@ -138,6 +138,7 @@ function App() {
           <Profile
             onCardClick={handleCardClick}
             clothingItems={clothingItems}
+            handleOpenModal={handleOpenModal}
           />
         </Route>
       </Switch>

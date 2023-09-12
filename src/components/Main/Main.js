@@ -5,6 +5,7 @@ import ItemCard from "../ItemCard/ItemCard";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
 function Main({ tempvalue, weatherImage, onCardClick, clothingItems }) {
+  console.log(clothingItems);
   const temperatureData = tempvalue.temperatureValue;
   const temperatureInDigits =
     temperatureData && Math.round(temperatureData.temperatureValue);
