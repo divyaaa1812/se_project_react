@@ -12,14 +12,14 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen, buttonText }) => {
     setImageUrl(e.target.value);
   };
 
-  const [weatherTypeValue, setWeatherTypeValue] = useState("");
+  const [weather, setWeatherTypeValue] = useState("");
   const handleRadioButton = (e) => {
     setWeatherTypeValue(e.currentTarget.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, imageUrl, weatherTypeValue });
+    onAddItem({ name, imageUrl, weather });
   };
 
   useEffect(() => {
