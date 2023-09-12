@@ -1,0 +1,21 @@
+.card__text-info {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.card__text-items {
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.card__text-button {
+  border: none;
+  font-size: 20px;
+  background: none;
+  opacity: 0.5;
+  font-weight: 700;
+  padding: 0;
+}
