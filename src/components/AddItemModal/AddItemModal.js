@@ -60,7 +60,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen, buttonText }) => {
           Image
           <div>
             <input
-              type="text"
+              type="url"
               name="imageUrl"
               placeholder="ImageURL"
               className="input-field"
