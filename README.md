@@ -49,4 +49,4 @@ React JS, Mock server DB setup
 
 ### Limitations
 
-- Currently, webpage display weather information for one of the county in California, United States.
+- Currently, webpage display weather information for one of the city in California State, USA.
