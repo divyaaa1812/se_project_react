@@ -45,7 +45,8 @@ React JS, Mock server DB setup
 ### Future Enhancements
 
 - create a server with an API and user authorization (Express and Mango DB)
-- Display clothings based on user location.
+- Display weather information based on user location.
+- Support for mobile apps
 
 ### Limitations
 
