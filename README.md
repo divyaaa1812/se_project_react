@@ -13,13 +13,18 @@ The idea of the application is pretty simple - we make a call to an API, which t
 
 ## Technologies Used
 
-React JS
+React JS, Mock server DB setup
 
 ## Links
 
 - [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
 
 ### Website Link
+
+## Instructions to run website:
+
+    -  open terminal and run Database server using command - json-server --watch db.json --id _id --port 3001
+    - open website using link below
 
 - [Link to the webpage](https://divyaaa1812.github.io/se_project_react)
 
