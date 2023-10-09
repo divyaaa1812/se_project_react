@@ -41,3 +41,12 @@ React JS, Mock server DB setup
 ### Popup when user clicks on garmet image
 
 ![Popup when user clicks on garmet image](https://github.com/divyaaa1812/se_project_react/blob/main/Website/clickonImage.png?raw=true)
+
+### Future Enhancements
+
+- create a server with an API and user authorization (Express and Mango DB)
+- Display clothings based on user location.
+
+### Limitations
+
+- Currently, webpage display weather information for one of the county in California, United States.
