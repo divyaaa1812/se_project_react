@@ -44,3 +44,27 @@
   cursor: pointer;
   opacity: 0.8;
 }
+
+.modal__button-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.modal__button {
+  text-decoration: none;
+  background-color: #00000080;
+  color: #ffffff;
+  font-weight: 500;
+  border: none;
+  font-family: CabinetGrotesk, serif;
+  font-size: 16px;
+  padding: 8px 16px 8px 16px;
+}
+
+.modal__link {
+  color: #00000080;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}

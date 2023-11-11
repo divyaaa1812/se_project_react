@@ -27,12 +27,20 @@ function Header({ locationValue, onOpenModal }) {
           <ToggleSwitch />
         </div>
         <div>
-          <button type="button" onClick={onOpenModal} className="header__btn">
+          <button
+            type="button"
+            onClick={() => onOpenModal("SignupModal")}
+            className="header__signup-btn header__btn"
+          >
             Sign Up
           </button>
         </div>
         <div>
-          <button type="button" onClick={onOpenModal} className="header__btn">
+          <button
+            type="button"
+            onClick={() => onOpenModal("LoginModal")}
+            className="header__login-btn header__btn"
+          >
             Log In
           </button>
         </div>

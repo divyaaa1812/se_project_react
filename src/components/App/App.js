@@ -16,7 +16,13 @@ import {
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import { Switch, Route } from "react-router-dom";
 import Profile from "../Profile/Profile";
-import { getItems, addItem, deleteItem } from "../../utils/Api";
+import {
+  getItems,
+  addItem,
+  deleteItem,
+  registerUser,
+  loginUser,
+} from "../../utils/Api";
 
 function App() {
   //Hook to open and closemodal
@@ -75,8 +81,8 @@ function App() {
     };
   }, [openModal]);
 
-  const handleOpenModal = () => {
-    setOpenModal("openModal");
+  const handleOpenModal = (modalName) => {
+    setOpenModal(modalName);
   };
   const handleCloseModal = () => {
     setOpenModal("");
@@ -181,19 +187,19 @@ function App() {
           buttonText={isLoading ? "Saving..." : "Save"}
         />
       )}
-      {openModal === "openModal" && (
+      {openModal === "SignupModal" && (
         <RegisterModal
           handleCloseModal={handleCloseModal}
           onRegisterUser={handleRegisterUser}
-          isOpen={openModal === "openModal"}
+          isOpen={openModal === "model1"}
           buttonText={isLoading ? "Saving..." : "Save"}
         />
       )}
-      {openModal === "openModal" && (
+      {openModal === "LoginModal" && (
         <LoginModal
           handleCloseModal={handleCloseModal}
           onUserLogin={handleUserLogin}
-          isOpen={openModal === "openModal"}
+          isOpen={openModal === "modle2"}
           buttonText={isLoading ? "Saving..." : "Save"}
         />
       )}

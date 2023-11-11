@@ -29,6 +29,7 @@ const LoginModal = ({ handleCloseModal, onUserLogin, isOpen }) => {
       title={"Log In"}
       name="login"
       buttonText="LogIn"
+      linkText="or Register"
       onClose={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
