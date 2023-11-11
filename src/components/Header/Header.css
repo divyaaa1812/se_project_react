@@ -22,23 +22,23 @@
   padding-left: 60px;
 }
 
-.header_profile_name_link {
+.header__btn {
   text-decoration: none;
   color: #000;
-  font-size: 20px;
   font-weight: 700;
+  border: none;
+  background: white;
+  font-family: CabinetGrotesk, serif;
 }
 
 .header__date {
   color: #000;
-  font-size: 20px;
-  font-weight: 700;
 }
 
-.header__add-clothes-btn {
+/* .header__signup-btn {
   font-size: 20px;
   font-weight: 700;
   color: #000;
   border: none;
   background: white;
-}
+} */

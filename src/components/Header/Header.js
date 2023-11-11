@@ -27,18 +27,14 @@ function Header({ locationValue, onOpenModal }) {
           <ToggleSwitch />
         </div>
         <div>
-          <button
-            type="text"
-            onClick={onOpenModal}
-            className="header__add-clothes-btn"
-          >
-            + Add Clothes
+          <button type="text" onClick={onOpenModal} className="header__btn">
+            Sign Up
           </button>
         </div>
         <div>
-          <Link to="/profile" className="header_profile_name_link">
-            Divya
-          </Link>
+          <button type="text" onClick={onOpenModal} className="header__btn">
+            Log In
+          </button>
         </div>
         <div className="header__avatar-image">
           <img src={avatar} alt="profile Picture" />
