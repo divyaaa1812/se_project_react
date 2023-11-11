@@ -5,6 +5,8 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemModal from "../ItemModal/ItemModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
+import LoginModal from "../LoginModal/LoginModal";
 import {
   getWeatherForecast,
   getTemperatureValue,
@@ -26,6 +28,8 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [registerUser, setRegisterUser] = useState([]);
+  const [loginUser, setUserLogin] = useState([]);
 
   useEffect(() => {
     async function fetchWeatherData() {
@@ -47,6 +51,7 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
+        console.log(data);
         setClothingItems(data);
       })
       .catch((error) => {
@@ -105,6 +110,20 @@ function App() {
       });
   };
 
+  const handleRegisterUser = (values) => {
+    registerUser(values).then((data) => {
+      console.log(data);
+      setRegisterUser(data);
+    });
+  };
+
+  const handleUserLogin = (values) => {
+    loginUser(values).then((data) => {
+      console.log(data);
+      setUserLogin(data);
+    });
+  };
+
   const handleDeleteCard = (selectedCard) => {
     deleteItem(selectedCard)
       .then(() => {
@@ -140,12 +159,40 @@ function App() {
             handleOpenModal={handleOpenModal}
           />
         </Route>
+        <Route path="/signup">
+          <RegisterModal
+            onRegisterUser={handleRegisterUser}
+            handleOpenModal={handleOpenModal}
+          />
+        </Route>
+        <Route path="/signin">
+          <RegisterModal
+            onUserLogin={handleUserLogin}
+            handleOpenModal={handleOpenModal}
+          />
+        </Route>
       </Switch>
       <Footer />
       {openModal === "openModal" && (
         <AddItemModal
           handleCloseModal={handleCloseModal}
           onAddItem={onAddItem}
+          isOpen={openModal === "openModal"}
+          buttonText={isLoading ? "Saving..." : "Save"}
+        />
+      )}
+      {openModal === "openModal" && (
+        <RegisterModal
+          handleCloseModal={handleCloseModal}
+          onRegisterUser={handleRegisterUser}
+          isOpen={openModal === "openModal"}
+          buttonText={isLoading ? "Saving..." : "Save"}
+        />
+      )}
+      {openModal === "openModal" && (
+        <LoginModal
+          handleCloseModal={handleCloseModal}
+          onUserLogin={handleUserLogin}
           isOpen={openModal === "openModal"}
           buttonText={isLoading ? "Saving..." : "Save"}
         />

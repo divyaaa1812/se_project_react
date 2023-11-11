@@ -33,6 +33,7 @@
 
 .header__date {
   color: #000;
+  font-weight: 700;
 }
 
 /* .header__signup-btn {
