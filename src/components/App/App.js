@@ -113,7 +113,7 @@ function App() {
   const onRegisterUser = (values) => {
     console.log(values);
     auth.registerUser(values);
-    handleCloseModal;
+    handleCloseModal();
   };
 
   const handleUserLogin = (values) => {
