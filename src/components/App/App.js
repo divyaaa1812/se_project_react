@@ -113,11 +113,12 @@ function App() {
   const onRegisterUser = (values) => {
     console.log(values);
     auth.registerUser(values);
-    // setRegisterUser([data, ...registerUser]);
+    handleCloseModal;
   };
 
   const handleUserLogin = (values) => {
     auth.loginUser(values);
+    handleCloseModal();
   };
 
   const handleDeleteCard = (selectedCard) => {
