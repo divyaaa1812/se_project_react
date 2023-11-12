@@ -26,7 +26,7 @@ React JS, Mock server DB setup
     - open terminal and run Database server using command:  json-server --watch db.json --id _id --port 3001
     - open website using link below
 
-- [Link to the webpage](https://divyaaa1812.github.io/se_project_react)
+[Link to the webpage](https://divyaaa1812.github.io/se_project_react)
 
 ### Images
 

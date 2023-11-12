@@ -95,6 +95,12 @@
       "imageUrl": "https://www.isueer.com/wp-content/uploads/2018/07/blue-ball-gown-prom-dress-0833-05.jpg",
       "weather": "Hot",
       "_id": 26
+    },
+    {
+      "name": "new item5",
+      "weather": "hot",
+      "imageURL": "www.newitem4.com",
+      "_id": 27
     }
   ]
 }

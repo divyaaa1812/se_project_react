@@ -16,9 +16,7 @@ export const registerUser = ({ email, password, name, avatar }) => {
     },
     //convert values to json string
     body: JSON.stringify({ email, password, name, avatar }),
-  }).then((data) => {
-    console.log(data);
-  });
+  }).then(checkResponse);
 };
 
 // login user

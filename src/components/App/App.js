@@ -29,6 +29,7 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [registerUser, setRegisterUser] = useState([]);
 
   useEffect(() => {
     async function fetchWeatherData() {
@@ -50,7 +51,7 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setClothingItems(data);
       })
       .catch((error) => {
@@ -110,8 +111,9 @@ function App() {
   };
 
   const onRegisterUser = (values) => {
-    setIsLoading(true);
+    console.log(values);
     auth.registerUser(values);
+    // setRegisterUser([data, ...registerUser]);
   };
 
   const handleUserLogin = (values) => {
@@ -160,7 +162,7 @@ function App() {
           />
         </Route>
         <Route path="/signin">
-          <RegisterModal
+          <LoginModal
             onUserLogin={handleUserLogin}
             handleOpenModal={handleOpenModal}
           />
