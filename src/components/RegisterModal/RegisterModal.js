@@ -3,9 +3,11 @@ import React, { useState, useEffect } from "react";
 import "./RegisterModal.css";
 
 const RegisterModal = ({ handleCloseModal, onRegisterUser, isOpen }) => {
+  // set states for handling user input
   const [email, setEmail] = useState("");
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
+    console.log(email);
   };
 
   const [password, setPassword] = useState("");

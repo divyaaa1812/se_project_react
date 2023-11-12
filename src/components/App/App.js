@@ -16,13 +16,8 @@ import {
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import { Switch, Route } from "react-router-dom";
 import Profile from "../Profile/Profile";
-import {
-  getItems,
-  addItem,
-  deleteItem,
-  registerUser,
-  loginUser,
-} from "../../utils/Api";
+import { getItems, addItem, deleteItem } from "../../utils/Api";
+import * as auth from "../../Auth";
 
 function App() {
   //Hook to open and closemodal
@@ -34,8 +29,6 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [registerUser, setRegisterUser] = useState([]);
-  const [loginUser, setUserLogin] = useState([]);
 
   useEffect(() => {
     async function fetchWeatherData() {
@@ -116,18 +109,13 @@ function App() {
       });
   };
 
-  const handleRegisterUser = (values) => {
-    registerUser(values).then((data) => {
-      console.log(data);
-      setRegisterUser(data);
-    });
+  const onRegisterUser = (values) => {
+    setIsLoading(true);
+    auth.registerUser(values);
   };
 
   const handleUserLogin = (values) => {
-    loginUser(values).then((data) => {
-      console.log(data);
-      setUserLogin(data);
-    });
+    auth.loginUser(values);
   };
 
   const handleDeleteCard = (selectedCard) => {
@@ -167,7 +155,7 @@ function App() {
         </Route>
         <Route path="/signup">
           <RegisterModal
-            onRegisterUser={handleRegisterUser}
+            onRegisterUser={onRegisterUser}
             handleOpenModal={handleOpenModal}
           />
         </Route>
@@ -190,7 +178,7 @@ function App() {
       {openModal === "SignupModal" && (
         <RegisterModal
           handleCloseModal={handleCloseModal}
-          onRegisterUser={handleRegisterUser}
+          onRegisterUser={onRegisterUser}
           isOpen={openModal === "model1"}
           buttonText={isLoading ? "Saving..." : "Save"}
         />
