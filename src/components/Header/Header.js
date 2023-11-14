@@ -3,12 +3,17 @@ import avatar from "../../images/avatar.png";
 import logo from "../../images/Logo.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
+import CurrentUserContext from "../../contexts/CurrentUserContext ";
+import { useContext } from "react";
 
-function Header({ locationValue, onOpenModal }) {
+function Header({ locationValue, onOpenModal, loggedIn }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
+  const currentUser = useContext(CurrentUserContext);
+  // const currentAvatar = currentUser.avatar !== "" ? true : false;
+  // console.log(currentUser);
 
   return (
     <header className="header">
@@ -44,6 +49,9 @@ function Header({ locationValue, onOpenModal }) {
             Log In
           </button>
         </div>
+        <Link to="/profile">
+          <div className="header__name">{}</div>
+        </Link>
         <div className="header__avatar-image">
           <img src={avatar} alt="profile Picture" />
         </div>

@@ -30,3 +30,28 @@ export const loginUser = ({ email, password }) => {
     body: JSON.stringify({ email, password }),
   }).then(checkResponse);
 };
+
+//to get user jwt token
+export const verifyToken = (token) => {
+  return fetch(`${baseUrl}/users/me`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+//edit profile
+
+export const editProfile = ({ name, avatar }) => {
+  const token = localStorage.getItem("jwt");
+  return fetch(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ name, avatar }),
+  });
+};

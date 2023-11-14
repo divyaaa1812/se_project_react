@@ -19,10 +19,13 @@ export const getItems = () => {
 
 //add items
 export const addItem = ({ name, imageUrl, weather }) => {
+  const token = localStorage.getItem("jwt");
+
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, imageUrl, weather }),
   }).then(checkResponse);
@@ -30,10 +33,12 @@ export const addItem = ({ name, imageUrl, weather }) => {
 
 // Delete Items
 export const deleteItem = (selectedCard) => {
+  const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/items/${selectedCard._id} `, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
     },
   }).then(checkResponse);
 };

@@ -7,7 +7,6 @@ const RegisterModal = ({ handleCloseModal, onRegisterUser, isOpen }) => {
   const [email, setEmail] = useState("");
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
-    console.log(email);
   };
 
   const [password, setPassword] = useState("");
