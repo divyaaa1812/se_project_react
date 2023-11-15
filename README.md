@@ -27,7 +27,8 @@ React JS, Mock server DB setup
     - open website using link below
 
 [Link to the webpage](https://divyaaa1812.github.io/se_project_react)
-sample logins:
+
+## sample logins:
 
 - db.1+test@gmail.com / pass123$
 - divyaaa1812@gmail.com / 123$
