@@ -4,7 +4,13 @@ import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
-function Main({ tempvalue, weatherImage, onCardClick, clothingItems }) {
+function Main({
+  tempvalue,
+  weatherImage,
+  onCardClick,
+  clothingItems,
+  loggedIn,
+}) {
   // console.log(clothingItems);
   const temperatureData = tempvalue.temperatureValue;
   const temperatureInDigits =
@@ -37,7 +43,12 @@ function Main({ tempvalue, weatherImage, onCardClick, clothingItems }) {
         <div className="card_items">
           {filteredItems.map((item) => {
             return (
-              <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
+              <ItemCard
+                key={item._id}
+                item={item}
+                onCardClick={onCardClick}
+                isLoggedIn={loggedIn}
+              />
             );
           })}
         </div>

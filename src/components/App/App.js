@@ -20,7 +20,7 @@ import { getItems, addItem, deleteItem } from "../../utils/Api";
 import * as auth from "../../Auth";
 import ProtectedRoute from "../ProtectedRoute";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import CurrentUserContext from "../../contexts/CurrentUserContext ";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext ";
 
 function App() {
   //Hook to open and closemodal
@@ -32,7 +32,7 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isloggedIn, setIsLoggedIn] = useState("false");
+  const [loggedIn, setLoggedIn] = useState("false");
   const [currentUser, setCurrentUser] = useState({});
   // to access browser stored content of a webpage for functional components
   const history = useHistory();
@@ -86,7 +86,7 @@ function App() {
         .verifyToken(jwt)
         .then((res) => {
           if (res) {
-            setIsLoggedIn(true);
+            setLoggedIn(true);
             setCurrentUser(res.data);
           }
         })
@@ -154,7 +154,7 @@ function App() {
           setCurrentUser(user);
           handleUserLogin({ email, password });
           localStorage.setItem("jwt", user.token);
-          setIsLoggedIn(true);
+          setLoggedIn(true);
         });
     };
     handleSubmit(newUserRequest);
@@ -168,7 +168,7 @@ function App() {
         console.log(token);
         return auth.verifyToken(token).then((data) => {
           const user = data.data;
-          setIsLoggedIn(true);
+          setLoggedIn(true);
           setCurrentUser(user);
           history.push("/profile");
         });
@@ -180,7 +180,7 @@ function App() {
   const handleLogout = () => {
     setCurrentUser("");
     localStorage.removeItem("jwt");
-    setIsLoggedIn(false);
+    setLoggedIn(false);
     history.push("/");
   };
 
@@ -206,7 +206,7 @@ function App() {
         <Header
           locationValue={location}
           onOpenModal={handleOpenModal}
-          loggedIn={isloggedIn}
+          isLoggedIn={loggedIn}
         />
         <Switch>
           <Route exact path="/">
@@ -215,10 +215,10 @@ function App() {
               weatherImage={weatherImage}
               onCardClick={handleCardClick}
               clothingItems={clothingItems}
-              loggedIn={isloggedIn}
+              isLoggedIn={loggedIn}
             />
           </Route>
-          <ProtectedRoute path="/profile" loggedIn={isloggedIn}>
+          <ProtectedRoute path="/profile" isLoggedIn={loggedIn}>
             <Profile
               onCardClick={handleCardClick}
               clothingItems={clothingItems}
