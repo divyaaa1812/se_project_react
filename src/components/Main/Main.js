@@ -9,7 +9,7 @@ function Main({
   weatherImage,
   onCardClick,
   clothingItems,
-  loggedIn,
+  isLoggedIn,
 }) {
   // console.log(clothingItems);
   const temperatureData = tempvalue.temperatureValue;
@@ -47,7 +47,7 @@ function Main({
                 key={item._id}
                 item={item}
                 onCardClick={onCardClick}
-                isLoggedIn={loggedIn}
+                isLoggedIn={isLoggedIn}
               />
             );
           })}

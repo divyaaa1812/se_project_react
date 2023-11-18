@@ -14,13 +14,14 @@ import {
   getWeatherIcon,
 } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import { getItems, addItem, deleteItem } from "../../utils/Api";
 import * as auth from "../../Auth";
 import ProtectedRoute from "../ProtectedRoute";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext ";
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
 
 function App() {
   //Hook to open and closemodal
@@ -57,7 +58,7 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
-        // console.log(data);
+        console.log(data);
         setClothingItems(data);
       })
       .catch((error) => {
@@ -106,6 +107,7 @@ function App() {
   const handleOpenModal = (modalName) => {
     setOpenModal(modalName);
   };
+
   const handleCloseModal = () => {
     setOpenModal("");
   };
@@ -124,15 +126,15 @@ function App() {
   };
 
   const onAddItem = (values) => {
+    console.log(values);
     setIsLoading(true);
     addItem(values)
       .then((data) => {
+        console.log(data);
         setClothingItems([data, ...clothingItems]);
         handleCloseModal();
       })
-      .catch((error) => {
-        console.error(error.status);
-      })
+      .catch(console.error)
       .finally(() => {
         setIsLoading(false);
       });
@@ -177,6 +179,20 @@ function App() {
     handleSubmit(userRequest);
   };
 
+  const handleEditProfileSubmit = (name, avatar, token) => {
+    setIsLoading(true);
+    auth
+      .editProfile(name, avatar, token)
+      .then((res) => {
+        setCurrentUser(res.data);
+        handleCloseModal();
+      })
+      .catch(console.error)
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
   const handleLogout = () => {
     setCurrentUser("");
     localStorage.removeItem("jwt");
@@ -199,10 +215,10 @@ function App() {
   };
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
-      <CurrentTemperatureUnitContext.Provider
-        value={{ currentTemperatureUnit, handleToggleSwitchChange }}
-      >
+    <CurrentTemperatureUnitContext.Provider
+      value={{ currentTemperatureUnit, handleToggleSwitchChange }}
+    >
+      <CurrentUserContext.Provider value={currentUser}>
         <Header
           locationValue={location}
           onOpenModal={handleOpenModal}
@@ -215,16 +231,19 @@ function App() {
               weatherImage={weatherImage}
               onCardClick={handleCardClick}
               clothingItems={clothingItems}
-              isLoggedIn={loggedIn}
             />
           </Route>
           <ProtectedRoute path="/profile" isLoggedIn={loggedIn}>
             <Profile
               onCardClick={handleCardClick}
               clothingItems={clothingItems}
-              handleOpenModal={handleOpenModal}
+              onEditProfileModal={handleEditProfileSubmit}
+              onLogout={handleLogout}
             />
           </ProtectedRoute>
+          {/* <Route exact path="">
+            {loggedIn ? <Redirect to="/profile" /> : <Redirect to="/" />}
+          </Route> */}
           <Route path="/signup">
             <RegisterModal
               onRegisterUser={handleSignUp}
@@ -239,11 +258,11 @@ function App() {
           </Route>
         </Switch>
         <Footer />
-        {openModal === "openModal" && (
+        {openModal === "AddItemModal" && (
           <AddItemModal
             handleCloseModal={handleCloseModal}
             onAddItem={onAddItem}
-            isOpen={openModal === "openModal"}
+            isOpen={openModal === "addClothesModal"}
             buttonText={isLoading ? "Saving..." : "Save"}
           />
         )}
@@ -270,8 +289,15 @@ function App() {
             handleDeleteCard={handleDeleteCard}
           />
         )}
-      </CurrentTemperatureUnitContext.Provider>
-    </CurrentUserContext.Provider>
+        {openModal === "editProfile" && (
+          <EditProfileModal
+            handleCloseModal={handleCloseModal}
+            onEditProfile={handleEditProfileSubmit}
+            isOpen={openModal === "editProfile"}
+          />
+        )}
+      </CurrentUserContext.Provider>
+    </CurrentTemperatureUnitContext.Provider>
   );
 }
 

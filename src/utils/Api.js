@@ -18,7 +18,7 @@ export const getItems = () => {
 };
 
 //add items
-export const addItem = ({ name, imageUrl, weather }) => {
+export const addItem = ({ name, weather, imageUrl }) => {
   const token = localStorage.getItem("jwt");
 
   return fetch(`${baseUrl}/items`, {
@@ -27,7 +27,7 @@ export const addItem = ({ name, imageUrl, weather }) => {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ name, imageUrl, weather }),
+    body: JSON.stringify({ name, weather, imageUrl }),
   }).then(checkResponse);
 };
 
@@ -40,5 +40,29 @@ export const deleteItem = (selectedCard) => {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
+  }).then(checkResponse);
+};
+
+//add card like
+export const addCardLike = (itemId, userId, token) => {
+  return fetch(`${baseUrl}/items/${itemId}/likes`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ itemId, userId }),
+  }).then(checkResponse);
+};
+
+//remove card like
+export const removeCardLike = (itemId, userId, token) => {
+  return fetch(`${baseUrl}/items/${itemId}/likes`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ itemId, userId }),
   }).then(checkResponse);
 };

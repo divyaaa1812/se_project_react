@@ -20,6 +20,7 @@
 
 .header__avatar-image {
   padding-left: 60px;
+  background-color: red;
 }
 
 .header__btn {

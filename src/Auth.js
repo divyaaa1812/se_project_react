@@ -39,13 +39,12 @@ export const verifyToken = (token) => {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  });
+  }).then(checkResponse);
 };
 
 //edit profile
 
-export const editProfile = ({ name, avatar }) => {
-  const token = localStorage.getItem("jwt");
+export const editProfile = ({ name, avatar, token }) => {
   return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
     headers: {
@@ -53,5 +52,5 @@ export const editProfile = ({ name, avatar }) => {
       authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, avatar }),
-  });
+  }).then(checkResponse);
 };

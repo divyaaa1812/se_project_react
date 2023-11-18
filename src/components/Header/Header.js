@@ -12,7 +12,14 @@ function Header({ locationValue, onOpenModal, isLoggedIn }) {
     day: "numeric",
   });
   const currentUser = useContext(CurrentUserContext);
-  const currentAvatar = { currentUser }.avatar !== "" ? true : false;
+  const currentAvatar = currentUser?.avatar !== "" ? true : false;
+  const avatar = currentUser?.avatar;
+  const name = currentUser?.name;
+  // console.log(currentAvatar);
+  // console.log(name);
+  // console.log(currentUser?.email);
+  // console.log(avatar);
+
   return (
     <header className="header">
       <div className="header__logo">
@@ -34,26 +41,24 @@ function Header({ locationValue, onOpenModal, isLoggedIn }) {
             <div>
               <button
                 className="header__button"
-                type="text"
-                onClick={onOpenModal}
+                type="button"
+                onClick={() => onOpenModal("AddItemModal")}
               >
                 + Add Clothes
               </button>
             </div>
             <div className="header__avatar-image">
-              <img src={{ currentDate }.avatar} alt="profile Picture" />
+              <img src={avatar} alt="" />
             </div>
             <Link to="/profile">
-              <div className="header__name">{{ currentUser }.name}</div>
+              <div className="header__name">{name}</div>
             </Link>
             {currentAvatar ? (
               <div className="header__avatar-image">
-                <img src={{ currentUser }?.avatar} alt="Profile picture" />
+                <img src={avatar} alt="" />
               </div>
             ) : (
-              <p className="header__avatar-default">
-                {{ currentUser }?.name[0].toUpperCase()}
-              </p>
+              <p className="header__avatar-default">{name[0].toUpperCase()}</p>
             )}
           </>
         ) : (
