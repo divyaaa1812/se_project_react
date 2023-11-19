@@ -39,7 +39,7 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [loggedIn, setLoggedIn] = useState("false");
+  const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   // to access browser stored content of a webpage for functional components
   const history = useHistory();
@@ -244,7 +244,11 @@ function App() {
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
-        <Header locationValue={location} onOpenModal={handleOpenModal} />
+        <Header
+          locationValue={location}
+          onOpenModal={handleOpenModal}
+          loggedIn={loggedIn}
+        />
         <Switch>
           <Route exact path="/">
             <Main
@@ -253,6 +257,7 @@ function App() {
               onCardClick={handleCardClick}
               clothingItems={clothingItems}
               onCardLike={handleLikeClick}
+              loggedIn={loggedIn}
             />
           </Route>
           <ProtectedRoute path="/profile" isLoggedIn={loggedIn}>

@@ -9,7 +9,7 @@ function Main({
   weatherImage,
   onCardClick,
   clothingItems,
-  isLoggedIn,
+  loggedIn,
   onCardLike,
 }) {
   // console.log(clothingItems);
@@ -50,7 +50,7 @@ function Main({
                 key={item._id}
                 item={item}
                 onCardClick={onCardClick}
-                isLoggedIn={isLoggedIn}
+                isLoggedIn={loggedIn}
                 onCardLike={onCardLike}
               />
             );
