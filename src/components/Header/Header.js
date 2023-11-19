@@ -45,7 +45,6 @@ function Header({ locationValue, onOpenModal, loggedIn }) {
                 type="button"
                 onClick={() => onOpenModal("AddItemModal")}
               >
-                {" "}
                 + Add Clothes
               </button>
             </div>

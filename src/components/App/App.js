@@ -244,11 +244,7 @@ function App() {
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
-        <Header
-          locationValue={location}
-          onOpenModal={handleOpenModal}
-          loggedIn={loggedIn}
-        />
+        <Header locationValue={location} onOpenModal={handleOpenModal} />
         <Switch>
           <Route exact path="/">
             <Main
