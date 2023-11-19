@@ -1,24 +1,25 @@
 import "./Header.css";
-import avatar from "../../images/avatar.png";
 import logo from "../../images/Logo.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext ";
 import { useContext } from "react";
 
-function Header({ locationValue, onOpenModal, isLoggedIn }) {
+function Header({ locationValue, onOpenModal, loggedIn }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
   const currentUser = useContext(CurrentUserContext);
-  const currentAvatar = currentUser?.avatar !== "" ? true : false;
+  // console.log(currentUser);
   const avatar = currentUser?.avatar;
   const name = currentUser?.name;
+  const currentAvatar = avatar !== "" ? true : false;
   // console.log(currentAvatar);
   // console.log(name);
   // console.log(currentUser?.email);
   // console.log(avatar);
+  console.log(loggedIn);
 
   return (
     <header className="header">
@@ -36,7 +37,7 @@ function Header({ locationValue, onOpenModal, isLoggedIn }) {
         <div>
           <ToggleSwitch />
         </div>
-        {isLoggedIn ? (
+        {loggedIn ? (
           <>
             <div>
               <button
@@ -44,11 +45,12 @@ function Header({ locationValue, onOpenModal, isLoggedIn }) {
                 type="button"
                 onClick={() => onOpenModal("AddItemModal")}
               >
+                {" "}
                 + Add Clothes
               </button>
             </div>
             <div className="header__avatar-image">
-              <img src={avatar} alt="" />
+              <img src={avatar} alt="Profile avatar icon" />
             </div>
             <Link to="/profile">
               <div className="header__name">{name}</div>
@@ -79,7 +81,6 @@ function Header({ locationValue, onOpenModal, isLoggedIn }) {
             </button>
           </>
         )}
-        ;
       </div>
     </header>
   );

@@ -26,7 +26,7 @@ const RegisterModal = ({ handleCloseModal, onRegisterUser, isOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onRegisterUser({ email, password, name, avatar });
+    onRegisterUser({ name, avatar, email, password });
   };
 
   useEffect(() => {

@@ -14,7 +14,7 @@ const SideBar = ({ onEditProfileModal, onLogout }) => {
   return (
     <>
       <div className="sidebar__avatar-image">
-        <img src={currentUser?.avatar} alt="profile Picture" />
+        <img src={currentUser?.imageUrl} alt="profile Picture" />
       </div>
       <div>
         <Link to="/profile" className="sidebar__profile-info">

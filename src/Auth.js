@@ -8,14 +8,14 @@ export const checkResponse = (res) => {
 };
 
 //Register new user
-export const registerUser = ({ email, password, name, avatar }) => {
+export const registerUser = ({ name, avatar, email, password }) => {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     //convert values to json string
-    body: JSON.stringify({ email, password, name, avatar }),
+    body: JSON.stringify({ name, avatar, email, password }),
   }).then(checkResponse);
 };
 

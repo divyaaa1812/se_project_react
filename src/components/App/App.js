@@ -14,9 +14,15 @@ import {
   getWeatherIcon,
 } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Profile from "../Profile/Profile";
-import { getItems, addItem, deleteItem } from "../../utils/Api";
+import {
+  getItems,
+  addItem,
+  deleteItem,
+  addCardLike,
+  removeCardLike,
+} from "../../utils/Api";
 import * as auth from "../../Auth";
 import ProtectedRoute from "../ProtectedRoute";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
@@ -134,49 +140,43 @@ function App() {
         setClothingItems([data, ...clothingItems]);
         handleCloseModal();
       })
-      .catch(console.error)
+      .catch((err) => {
+        console.error(err);
+      })
       .finally(() => {
         setIsLoading(false);
       });
   };
 
-  const handleSubmit = (request) => {
-    setIsLoading(true);
-    request()
-      .then(handleCloseModal)
-      .catch(console.error)
-      .finally(() => setIsLoading(false));
-  };
+  // const handleSubmit = (request) => {
+  //   setIsLoading(true);
+  //   request()
+  //     .then(handleCloseModal)
+  //     .catch(console.error)
+  //     .finally(() => setIsLoading(false));
+  // };
 
-  const handleSignUp = ({ email, password, name, avatar }) => {
-    const newUserRequest = () => {
-      return auth
-        .registerUser({ email, password, name, avatar })
-        .then((user) => {
-          setCurrentUser(user);
-          handleUserLogin({ email, password });
-          localStorage.setItem("jwt", user.token);
-          setLoggedIn(true);
-        });
-    };
-    handleSubmit(newUserRequest);
+  const handleSignUp = ({ name, avatar, email, password }) => {
+    return auth.registerUser({ name, avatar, email, password }).then((user) => {
+      auth.loginUser({ email, password }).then(() => {
+        handleCloseModal();
+      });
+    });
   };
 
   const handleUserLogin = ({ email, password }) => {
-    const userRequest = () => {
-      return auth.loginUser({ email, password }).then((res) => {
-        const token = res.token;
-        localStorage.setItem("jwt", token);
-        console.log(token);
-        return auth.verifyToken(token).then((data) => {
-          const user = data.data;
-          setLoggedIn(true);
-          setCurrentUser(user);
-          history.push("/profile");
-        });
+    return auth.loginUser({ email, password }).then((res) => {
+      const token = res.token;
+      localStorage.setItem("jwt", res.token);
+      return auth.verifyToken(token).then((data) => {
+        const user = data;
+        console.log(user);
+        setLoggedIn(true);
+        setCurrentUser(user);
+        handleCloseModal();
+        history.push("/profile");
       });
-    };
-    handleSubmit(userRequest);
+    });
   };
 
   const handleEditProfileSubmit = (name, avatar, token) => {
@@ -214,15 +214,40 @@ function App() {
       });
   };
 
+  const handleLikeClick = ({ selectedCard, isLiked }) => {
+    const token = localStorage.getItem("jwt");
+    // Check if this card is now liked
+    isLiked
+      ? addCardLike(selectedCard, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((card) =>
+                card._id === selectedCard._id ? updatedCard.data : card
+              )
+            );
+          })
+          .catch((err) => console.log(err))
+      : // if not, send a request to remove the user's id from the card's likes array
+        removeCardLike(selectedCard, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((card) =>
+                card._id === selectedCard._id ? updatedCard.data : card
+              )
+            );
+          })
+          .catch((err) => console.log(err));
+  };
+
   return (
-    <CurrentTemperatureUnitContext.Provider
-      value={{ currentTemperatureUnit, handleToggleSwitchChange }}
-    >
-      <CurrentUserContext.Provider value={currentUser}>
+    <CurrentUserContext.Provider value={currentUser}>
+      <CurrentTemperatureUnitContext.Provider
+        value={{ currentTemperatureUnit, handleToggleSwitchChange }}
+      >
         <Header
           locationValue={location}
           onOpenModal={handleOpenModal}
-          isLoggedIn={loggedIn}
+          loggedIn={loggedIn}
         />
         <Switch>
           <Route exact path="/">
@@ -231,6 +256,7 @@ function App() {
               weatherImage={weatherImage}
               onCardClick={handleCardClick}
               clothingItems={clothingItems}
+              onCardLike={handleLikeClick}
             />
           </Route>
           <ProtectedRoute path="/profile" isLoggedIn={loggedIn}>
@@ -239,6 +265,8 @@ function App() {
               clothingItems={clothingItems}
               onEditProfileModal={handleEditProfileSubmit}
               onLogout={handleLogout}
+              loggedIn={loggedIn}
+              onCardLike={handleLikeClick}
             />
           </ProtectedRoute>
           {/* <Route exact path="">
@@ -246,14 +274,16 @@ function App() {
           </Route> */}
           <Route path="/signup">
             <RegisterModal
+              handleCloseModal={handleCloseModal}
               onRegisterUser={handleSignUp}
-              handleOpenModal={handleOpenModal}
+              isOpen={handleOpenModal}
             />
           </Route>
           <Route path="/signin">
             <LoginModal
+              handleCloseModal={handleCloseModal}
               onUserLogin={handleUserLogin}
-              handleOpenModal={handleOpenModal}
+              isOpen={handleOpenModal}
             />
           </Route>
         </Switch>
@@ -296,8 +326,8 @@ function App() {
             isOpen={openModal === "editProfile"}
           />
         )}
-      </CurrentUserContext.Provider>
-    </CurrentTemperatureUnitContext.Provider>
+      </CurrentTemperatureUnitContext.Provider>
+    </CurrentUserContext.Provider>
   );
 }
 

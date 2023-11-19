@@ -10,6 +10,7 @@ function Main({
   onCardClick,
   clothingItems,
   isLoggedIn,
+  onCardLike,
 }) {
   // console.log(clothingItems);
   const temperatureData = tempvalue.temperatureValue;
@@ -38,9 +39,11 @@ function Main({
   return (
     <main className="main">
       <WeatherCard type={weatherImage} temperature={temp} />
-      <section className="card_section">
-        Today is {temp} / You may want to wear:
-        <div className="card_items">
+      <section className="card__section">
+        <div className="card__section-title">
+          Today is {temp} / You may want to wear:
+        </div>
+        <div className="card__items">
           {filteredItems.map((item) => {
             return (
               <ItemCard
@@ -48,6 +51,7 @@ function Main({
                 item={item}
                 onCardClick={onCardClick}
                 isLoggedIn={isLoggedIn}
+                onCardLike={onCardLike}
               />
             );
           })}

@@ -1,4 +1,13 @@
-.card_image {
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../../fonts/fonts/CabinetGrotesk-Medium.woff") format("woff");
+}
+
+.card__item {
+  position: relative;
+}
+
+.card__image {
   max-width: 328px;
   height: 328px;
   width: 100%;
@@ -6,10 +15,36 @@
   margin-top: 20px;
 }
 
-.card_name {
+.card__name {
+  position: absolute;
   text-align: center;
-  position: relative;
-  top: 60px;
+  left: 140px;
+  top: 18px;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: "Cabinet Grotesk";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  background-color: #ffffff;
+}
+
+.card__section {
+  margin-top: 20px;
+}
+
+.card__section-title {
+  color: #000;
+  font-family: "Cabinet Grotesk";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.card__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   width: 100%;
-  margin: 0;
+  justify-content: center;
+  margin-top: 20px;
 }

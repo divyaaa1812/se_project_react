@@ -8,6 +8,8 @@ const Profile = ({
   handleOpenModal,
   onEditProfileModal,
   onLogout,
+  loggedIn,
+  onCardLike,
 }) => {
   return (
     <div className="profile">
@@ -22,6 +24,8 @@ const Profile = ({
           onCardClick={onCardClick}
           clothingItems={clothingItems}
           handleOpenModal={handleOpenModal}
+          loggedIn={loggedIn}
+          onCardLike={onCardLike}
         />
       </section>
     </div>

@@ -1,4 +1,6 @@
 const baseUrl = "http://localhost:3001";
+const token = localStorage.getItem("jwt");
+
 export const checkResponse = (res) => {
   if (res.ok) {
     return res.json();
@@ -19,11 +21,11 @@ export const getItems = () => {
 
 //add items
 export const addItem = ({ name, weather, imageUrl }) => {
-  const token = localStorage.getItem("jwt");
-
+  console.log({ name, weather, imageUrl });
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
+      Accept: "application/json",
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
@@ -33,7 +35,6 @@ export const addItem = ({ name, weather, imageUrl }) => {
 
 // Delete Items
 export const deleteItem = (selectedCard) => {
-  const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/items/${selectedCard._id} `, {
     method: "DELETE",
     headers: {
