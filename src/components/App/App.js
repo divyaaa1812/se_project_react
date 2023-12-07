@@ -14,7 +14,7 @@ import {
   getWeatherIcon,
 } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import {
   getItems,
@@ -93,8 +93,9 @@ function App() {
         .verifyToken(jwt)
         .then((res) => {
           if (res) {
+            console.log(res);
             setLoggedIn(true);
-            setCurrentUser(res.data);
+            setCurrentUser(res._id);
           }
         })
         .then(() => {
@@ -131,12 +132,10 @@ function App() {
     }
   };
 
-  const onAddItem = (values) => {
-    console.log(values);
+  const onAddItem = ({ name, weather, imageUrl }) => {
     setIsLoading(true);
-    addItem(values)
+    addItem({ name, weather, imageUrl })
       .then((data) => {
-        console.log(data);
         setClothingItems([data, ...clothingItems]);
         handleCloseModal();
       })
@@ -157,37 +156,53 @@ function App() {
   // };
 
   const handleSignUp = ({ name, avatar, email, password }) => {
-    return auth.registerUser({ name, avatar, email, password }).then((user) => {
-      auth.loginUser({ email, password }).then(() => {
-        handleCloseModal();
+    return auth
+      .registerUser({ name, avatar, email, password })
+      .then((user) => {
+        auth.loginUser({ email, password }).then(() => {
+          handleCloseModal();
+        });
+      })
+      .catch((err) => {
+        console.error(err);
       });
-    });
   };
 
   const handleUserLogin = ({ email, password }) => {
-    return auth.loginUser({ email, password }).then((res) => {
-      const token = res.token;
-      localStorage.setItem("jwt", res.token);
-      return auth.verifyToken(token).then((data) => {
-        const user = data;
-        console.log(user);
-        setLoggedIn(true);
-        setCurrentUser(user);
-        handleCloseModal();
-        history.push("/profile");
+    return auth
+      .loginUser({ email, password })
+      .then((res) => {
+        const token = res.token;
+        localStorage.setItem("jwt", res.token);
+        return auth.verifyToken(token).then((data) => {
+          const user = data._id;
+          setLoggedIn(true);
+          setCurrentUser(user);
+          handleCloseModal();
+          history.push("/profile");
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
-    });
   };
 
   const handleEditProfileSubmit = (name, avatar, token) => {
     setIsLoading(true);
     auth
       .editProfile(name, avatar, token)
-      .then((res) => {
-        setCurrentUser(res.data);
+      .then((data) => {
+        const user = data._id;
+        console.log(user);
+        setCurrentUser(user);
         handleCloseModal();
       })
-      .catch(console.error)
+      .catch((err) => {
+        console.error(err);
+      })
       .finally(() => {
         setIsLoading(false);
       });
@@ -260,7 +275,7 @@ function App() {
               loggedIn={loggedIn}
             />
           </Route>
-          <ProtectedRoute path="/profile" isLoggedIn={loggedIn}>
+          <ProtectedRoute path="/profile" loggedIn={loggedIn}>
             <Profile
               onCardClick={handleCardClick}
               clothingItems={clothingItems}
@@ -310,7 +325,7 @@ function App() {
             handleCloseModal={handleCloseModal}
             onUserLogin={handleUserLogin}
             isOpen={openModal === "modle2"}
-            buttonText={isLoading ? "Saving..." : "Save"}
+            buttonText={isLoading ? "LoggingIn..." : "LogIn"}
           />
         )}
         {openModal === "previewModal" && (

@@ -15,7 +15,6 @@ function Header({ locationValue, onOpenModal, loggedIn }) {
   const avatar = currentUser?.avatar;
   const name = currentUser?.name;
   const currentAvatar = avatar !== "" ? true : false;
-  // console.log(currentAvatar);
   // console.log(name);
   // console.log(currentUser?.email);
   // console.log(avatar);

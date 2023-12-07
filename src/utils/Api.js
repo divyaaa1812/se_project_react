@@ -25,7 +25,6 @@ export const addItem = ({ name, weather, imageUrl }) => {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
-      Accept: "application/json",
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
