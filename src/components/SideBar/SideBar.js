@@ -15,12 +15,11 @@ const SideBar = ({ onEditProfileModal, onLogout }) => {
     <>
       <div className="sidebar__user-info-container">
         <div className="sidebar__avatar-image">
-          <img src={currentUser?.imageUrl} alt="profile Picture" />
+          <img src={currentUser.imageUrl} alt="profile" />
         </div>
         <div>
           <Link to="/profile" className="sidebar__profile-info">
-            {/* {currentUser?.name} */}
-            Divya B
+            {currentUser.name}
           </Link>
         </div>
       </div>

@@ -22,6 +22,7 @@ function Main({
     (temperatureUnit && temperatureUnit.temperatureWithUnits)?.[
       currentTemperatureUnit
     ] || 900;
+  console.log(temp);
   const weatherType = useMemo(() => {
     if (temperatureInDigits >= 86 || temperatureInDigits >= 30) {
       return "hot";

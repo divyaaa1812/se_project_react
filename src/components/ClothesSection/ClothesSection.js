@@ -3,7 +3,13 @@ import "./ClothesSection.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext ";
 import { useContext } from "react";
 
-const ClothesSection = ({ onCardClick, clothingItems, handleOpenModal }) => {
+const ClothesSection = ({
+  onCardClick,
+  clothingItems,
+  onOpenModal,
+  loggedIn,
+  onCardLike,
+}) => {
   const currentUser = useContext(CurrentUserContext);
   const ownedItems = clothingItems.filter((item) => {
     return item.owner === currentUser;
@@ -16,7 +22,7 @@ const ClothesSection = ({ onCardClick, clothingItems, handleOpenModal }) => {
         <button
           className="card__text-button"
           type="submit"
-          onClick={handleOpenModal}
+          onClick={() => onOpenModal("AddItemModal")}
         >
           + Add new
         </button>

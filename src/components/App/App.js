@@ -95,7 +95,7 @@ function App() {
           if (res) {
             console.log(res);
             setLoggedIn(true);
-            setCurrentUser(res._id);
+            setCurrentUser(res);
           }
         })
         .then(() => {
@@ -137,13 +137,13 @@ function App() {
     addItem({ name, weather, imageUrl })
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
-        handleCloseModal();
       })
       .catch((err) => {
         console.error(err);
       })
       .finally(() => {
         setIsLoading(false);
+        handleCloseModal();
       });
   };
 
@@ -255,7 +255,7 @@ function App() {
   };
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
+    <CurrentUserContext.Provider value={{ currentUser, loggedIn }}>
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
@@ -279,6 +279,7 @@ function App() {
             <Profile
               onCardClick={handleCardClick}
               clothingItems={clothingItems}
+              onOpenModal={handleOpenModal}
               onEditProfileModal={handleEditProfileSubmit}
               onLogout={handleLogout}
               loggedIn={loggedIn}

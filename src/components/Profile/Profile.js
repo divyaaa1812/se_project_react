@@ -5,7 +5,7 @@ import "./Profile.css";
 const Profile = ({
   onCardClick,
   clothingItems,
-  handleOpenModal,
+  onOpenModal,
   onEditProfileModal,
   onLogout,
   loggedIn,
@@ -23,7 +23,7 @@ const Profile = ({
         <ClothesSection
           onCardClick={onCardClick}
           clothingItems={clothingItems}
-          handleOpenModal={handleOpenModal}
+          onOpenModal={onOpenModal}
           loggedIn={loggedIn}
           onCardLike={onCardLike}
         />

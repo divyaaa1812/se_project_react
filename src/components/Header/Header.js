@@ -10,15 +10,10 @@ function Header({ locationValue, onOpenModal, loggedIn }) {
     month: "long",
     day: "numeric",
   });
-  const currentUser = useContext(CurrentUserContext);
-  // console.log(currentUser);
-  const avatar = currentUser?.avatar;
-  const name = currentUser?.name;
+  const { currentUser } = useContext(CurrentUserContext);
+  const avatar = currentUser.avatar;
+  const name = currentUser.name;
   const currentAvatar = avatar !== "" ? true : false;
-  // console.log(name);
-  // console.log(currentUser?.email);
-  // console.log(avatar);
-  console.log(loggedIn);
 
   return (
     <header className="header">
@@ -47,11 +42,11 @@ function Header({ locationValue, onOpenModal, loggedIn }) {
                 + Add Clothes
               </button>
             </div>
-            <div className="header__avatar-image">
+            {/* <div className="header__avatar-image">
               <img src={avatar} alt="Profile avatar icon" />
-            </div>
-            <Link to="/profile">
-              <div className="header__name">{name}</div>
+            </div> */}
+            <Link className="header__name" to="/profile">
+              <div>{name}</div>
             </Link>
             {currentAvatar ? (
               <div className="header__avatar-image">

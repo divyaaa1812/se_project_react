@@ -18,6 +18,11 @@
   gap: 20px;
 }
 
+.header__name {
+  text-decoration: none;
+  color: #000;
+}
+
 .header__avatar-image {
   padding-left: 60px;
 }
