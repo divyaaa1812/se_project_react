@@ -10,9 +10,9 @@ const ClothesSection = ({
   loggedIn,
   onCardLike,
 }) => {
-  const currentUser = useContext(CurrentUserContext);
+  const { currentUser } = useContext(CurrentUserContext);
   const ownedItems = clothingItems.filter((item) => {
-    return item.owner === currentUser;
+    return item.owner === currentUser?._id;
   });
 
   return (
@@ -31,7 +31,13 @@ const ClothesSection = ({
         {""}
         {ownedItems.map((item) => {
           return (
-            <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
+            <ItemCard
+              key={item?._id}
+              item={item}
+              onCardClick={onCardClick}
+              loggedIn={loggedIn}
+              onCardLike={onCardLike}
+            />
           );
         })}
       </div>

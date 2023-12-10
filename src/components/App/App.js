@@ -14,7 +14,7 @@ import {
   getWeatherIcon,
 } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import {
   getItems,
@@ -64,7 +64,6 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
-        console.log(data);
         setClothingItems(data);
       })
       .catch((error) => {
@@ -93,7 +92,6 @@ function App() {
         .verifyToken(jwt)
         .then((res) => {
           if (res) {
-            console.log(res);
             setLoggedIn(true);
             setCurrentUser(res);
           }

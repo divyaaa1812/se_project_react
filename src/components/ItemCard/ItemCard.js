@@ -5,6 +5,7 @@ import likebutton from "../../images/likebutton.png";
 import likebuttonactive from "../../images/likebuttonactive.png";
 
 const ItemCard = ({ item, onCardClick, loggedIn, onCardLike }) => {
+  console.log(item);
   const currentUser = useContext(CurrentUserContext);
   const isLiked = item.likes.some((id) => id === currentUser?._id);
   const cardLikeButtonClass = `card__like-btn ${
@@ -17,7 +18,7 @@ const ItemCard = ({ item, onCardClick, loggedIn, onCardLike }) => {
 
   return (
     <div className="card__item">
-      <p className="card__name">{item?.name}</p>
+      <p className="card__name">{item.name}</p>
       <img
         src={cardLikeButtonImg}
         className={cardLikeButtonClass}
