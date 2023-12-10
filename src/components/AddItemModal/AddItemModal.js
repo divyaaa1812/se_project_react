@@ -1,7 +1,7 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import React, { useState, useEffect } from "react";
 
-const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
+const AddItemModal = ({ handleCloseModal, onAddItem, onOpenModal }) => {
   const [name, setName] = useState("");
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -23,12 +23,12 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
   };
 
   useEffect(() => {
-    if (isOpen) {
+    if (onOpenModal) {
       setName("");
       setWeatherTypeValue("");
       setImageUrl("");
     }
-  }, [isOpen]);
+  }, [onOpenModal]);
 
   return (
     <ModalWithForm
@@ -37,7 +37,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
       buttonText="Add garmet"
       linkText=""
       onClose={handleCloseModal}
-      isOpen={isOpen}
+      isOpen={onOpenModal}
       onSubmit={handleSubmit}
     >
       <div className="form__field">

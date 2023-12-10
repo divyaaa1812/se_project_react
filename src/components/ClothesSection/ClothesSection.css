@@ -20,3 +20,9 @@
   padding: 0;
   cursor: pointer;
 }
+
+.card_items {
+  display: flex;
+  gap: 20px;
+  flex-flow: wrap;
+}

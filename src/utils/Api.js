@@ -44,25 +44,25 @@ export const deleteItem = (selectedCard) => {
 };
 
 //add card like
-export const addCardLike = (itemId, userId, token) => {
-  return fetch(`${baseUrl}/items/${itemId}/likes`, {
+export const addCardLike = (selectedCard) => {
+  const token = localStorage.getItem("jwt");
+  return fetch(`${baseUrl}/items/${selectedCard._id}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ itemId, userId }),
   }).then(checkResponse);
 };
 
 //remove card like
-export const removeCardLike = (itemId, userId, token) => {
-  return fetch(`${baseUrl}/items/${itemId}/likes`, {
+export const removeCardLike = (selectedCard) => {
+  const token = localStorage.getItem("jwt");
+  return fetch(`${baseUrl}/items/${selectedCard._id}/likes`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ itemId, userId }),
   }).then(checkResponse);
 };

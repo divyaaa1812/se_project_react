@@ -2,7 +2,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import React, { useState, useEffect } from "react";
 import "./RegisterModal.css";
 
-const RegisterModal = ({ handleCloseModal, onRegisterUser, isOpen }) => {
+const RegisterModal = ({ handleCloseModal, onRegisterUser, onOpenModal }) => {
   // set states for handling user input
   const [email, setEmail] = useState("");
   const handleEmailChange = (e) => {
@@ -30,13 +30,13 @@ const RegisterModal = ({ handleCloseModal, onRegisterUser, isOpen }) => {
   };
 
   useEffect(() => {
-    if (isOpen) {
+    if (onOpenModal) {
       setEmail("");
       setName("");
       setPassword("");
       setAvatarUrl("");
     }
-  }, [isOpen]);
+  }, [onOpenModal]);
 
   return (
     <ModalWithForm
@@ -45,7 +45,7 @@ const RegisterModal = ({ handleCloseModal, onRegisterUser, isOpen }) => {
       buttonText="Next"
       linkText=" or Log in"
       onClose={handleCloseModal}
-      isOpen={isOpen}
+      isOpen={onOpenModal}
       onSubmit={handleSubmit}
     >
       <div className="form__field">

@@ -188,10 +188,10 @@ function App() {
       });
   };
 
-  const handleEditProfileSubmit = (name, avatar, token) => {
+  const handleEditProfileSubmit = ({ name, avatar }) => {
     setIsLoading(true);
-    auth
-      .editProfile(name, avatar, token)
+    return auth
+      .editProfile({ name, avatar })
       .then((data) => {
         const user = data._id;
         console.log(user);
@@ -227,21 +227,23 @@ function App() {
       });
   };
 
-  const handleLikeClick = ({ selectedCard, isLiked }) => {
+  const handleLikeClick = (selectedCard) => {
+    const { isLiked } = selectedCard;
     const token = localStorage.getItem("jwt");
     // Check if this card is now liked
     isLiked
-      ? addCardLike(selectedCard, token)
+      ? addCardLike(selectedCard)
           .then((updatedCard) => {
-            setClothingItems((cards) =>
-              cards.map((card) =>
-                card._id === selectedCard._id ? updatedCard.data : card
-              )
-            );
+            setClothingItems((cards) => {
+              return cards.map((card) => {
+                console.log(card, selectedCard);
+                return card._id === selectedCard._id ? updatedCard.data : card;
+              });
+            });
           })
           .catch((err) => console.log(err))
       : // if not, send a request to remove the user's id from the card's likes array
-        removeCardLike(selectedCard, token)
+        removeCardLike(selectedCard)
           .then((updatedCard) => {
             setClothingItems((cards) =>
               cards.map((card) =>
@@ -291,14 +293,14 @@ function App() {
             <RegisterModal
               handleCloseModal={handleCloseModal}
               onRegisterUser={handleSignUp}
-              isOpen={handleOpenModal}
+              onOpenModal={handleOpenModal}
             />
           </Route>
           <Route path="/signin">
             <LoginModal
               handleCloseModal={handleCloseModal}
               onUserLogin={handleUserLogin}
-              isOpen={handleOpenModal}
+              onOpenModal={handleOpenModal}
             />
           </Route>
         </Switch>
@@ -307,7 +309,7 @@ function App() {
           <AddItemModal
             handleCloseModal={handleCloseModal}
             onAddItem={onAddItem}
-            isOpen={openModal === "addClothesModal"}
+            onOpenModal={handleOpenModal}
             buttonText={isLoading ? "Saving..." : "Save"}
           />
         )}
@@ -315,7 +317,7 @@ function App() {
           <RegisterModal
             handleCloseModal={handleCloseModal}
             onRegisterUser={handleSignUp}
-            isOpen={openModal === "model1"}
+            isOpen={handleOpenModal}
             buttonText={isLoading ? "Submtting..." : "Next"}
           />
         )}
@@ -338,7 +340,7 @@ function App() {
           <EditProfileModal
             handleCloseModal={handleCloseModal}
             onEditProfile={handleEditProfileSubmit}
-            isOpen={openModal === "editProfile"}
+            isOpen={handleOpenModal}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>

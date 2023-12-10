@@ -44,7 +44,8 @@ export const verifyToken = (token) => {
 
 //edit profile
 
-export const editProfile = ({ name, avatar, token }) => {
+export const editProfile = ({ name, avatar }) => {
+  const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
     headers: {

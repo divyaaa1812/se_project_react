@@ -1,7 +1,7 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import React, { useState, useEffect } from "react";
 
-const LoginModal = ({ handleCloseModal, onUserLogin, isOpen }) => {
+const LoginModal = ({ handleCloseModal, onUserLogin, onOpenModal }) => {
   const [email, setEmail] = useState("");
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -18,11 +18,11 @@ const LoginModal = ({ handleCloseModal, onUserLogin, isOpen }) => {
   };
 
   useEffect(() => {
-    if (isOpen) {
+    if (onOpenModal) {
       setEmail("");
       setPassword("");
     }
-  }, [isOpen]);
+  }, [onOpenModal]);
 
   return (
     <ModalWithForm
@@ -31,7 +31,7 @@ const LoginModal = ({ handleCloseModal, onUserLogin, isOpen }) => {
       buttonText="LogIn"
       linkText="or Register"
       onClose={handleCloseModal}
-      isOpen={isOpen}
+      isOpen={onOpenModal}
       onSubmit={handleSubmit}
     >
       <div className="form__field">

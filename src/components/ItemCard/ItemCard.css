@@ -19,13 +19,14 @@
   position: absolute;
   text-align: center;
   left: 140px;
-  top: 18px;
+  top: 33px;
   color: rgba(0, 0, 0, 0.6);
   font-family: "Cabinet Grotesk";
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
   background-color: #ffffff;
+  margin: 0px;
 }
 
 .card__section {
@@ -45,6 +46,20 @@
   flex-wrap: wrap;
   gap: 20px;
   width: 100%;
-  justify-content: center;
   margin-top: 20px;
+}
+
+.card__like-btn {
+  position: absolute;
+  text-align: center;
+  right: 110px;
+  top: 35px;
+}
+
+.card__like-btn_visible {
+  visibility: visible;
+}
+
+.card__like-btn_hidden {
+  visibility: hidden;
 }

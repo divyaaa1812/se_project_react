@@ -4,11 +4,8 @@ import "./SideBar.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext ";
 import { useContext } from "react";
 
-const SideBar = ({ onEditProfileModal, onLogout }) => {
+const SideBar = ({ onOpenModal, handleEditProfileModal, onLogout }) => {
   const { currentUser } = useContext(CurrentUserContext);
-  const currentAvatar = currentUser?.avatar !== "" ? true : false;
-  console.log({ currentUser });
-  console.log(currentUser.avatar);
   const handleLogoutClick = () => {
     onLogout();
   };
@@ -17,11 +14,11 @@ const SideBar = ({ onEditProfileModal, onLogout }) => {
     <>
       <div className="sidebar__user-info-container">
         <div className="sidebar__avatar-image">
-          <img src={currentUser.avatar} alt="user profile" />
+          <img src={currentUser?.avatar} alt="user profile" />
         </div>
         <div>
           <Link to="/profile" className="sidebar__profile-info">
-            {currentUser.name}
+            {currentUser?.name}
           </Link>
         </div>
       </div>
@@ -29,7 +26,8 @@ const SideBar = ({ onEditProfileModal, onLogout }) => {
         <button
           className="profile__sidebar-button"
           type="button"
-          onClick={onEditProfileModal}
+          onClick={() => onOpenModal("editProfile")}
+          onSubmit={() => handleEditProfileModal()}
         >
           Change Profile Data
         </button>

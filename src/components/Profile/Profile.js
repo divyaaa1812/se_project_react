@@ -15,8 +15,9 @@ const Profile = ({
     <div className="profile">
       <div className="profile-sidebar">
         <SideBar
-          handleEditProfileModal={onEditProfileModal}
+          onOpenModal={onOpenModal}
           onLogout={onLogout}
+          handleEditProfileModal={() => onEditProfileModal()}
         />
       </div>
       <section className="profile-clothes">
@@ -25,7 +26,7 @@ const Profile = ({
           clothingItems={clothingItems}
           onOpenModal={onOpenModal}
           loggedIn={loggedIn}
-          onCardLike={onCardLike}
+          onCardLike={() => onCardLike()}
         />
       </section>
     </div>
