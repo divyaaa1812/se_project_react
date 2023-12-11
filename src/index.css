@@ -9,9 +9,3 @@ body {
   src: local("CabinetGrotesk"),
     url(./fonts/fonts/CabinetGrotesk-Regular.woff) format("woff");
 }
-
-@font-face {
-  font-family: "CabinetGrotesk-bold";
-  src: local("CabinetGrotesk"),
-    url(./fonts/fonts/CabinetGrotesk-Bold.woff2) format("woff");
-}

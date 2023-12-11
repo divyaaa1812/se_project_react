@@ -1,13 +1,18 @@
 .sidebar__user-info-container {
   display: flex;
-  font-family: "CabinetGrotesk-bold";
+  font-family: "CabinetGrotesk";
+  align-items: center;
+  gap: 20px;
+  font-weight: 700;
 }
 
 .sidebar__profile-info-container {
+  font-family: "CabinetGrotesk";
   display: flex;
   gap: 20px;
   text-decoration: none;
   color: black;
+  font-weight: 700;
 }
 
 .profile__sidebar-button-container {
@@ -17,16 +22,23 @@
 }
 
 .profile__sidebar-button {
-  text-decoration: none;
-  padding: 0px;
-}
-
-.profile__sidebar-button {
   border: none;
   background-color: white;
+  text-decoration: none;
+  padding: 0px;
+  font-family: "CabinetGrotesk";
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .sidebar__profile-info {
   text-decoration: none;
   color: #000000;
+}
+
+.sidebar__avatar-image {
+  max-width: 56px;
+  width: 100%;
+  background-repeat: no-repeat;
+  border-radius: 50%;
 }

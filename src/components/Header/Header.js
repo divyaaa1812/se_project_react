@@ -35,7 +35,7 @@ function Header({ locationValue, onOpenModal, loggedIn }) {
           <>
             <div>
               <button
-                className="header__button"
+                className="header__btn"
                 type="button"
                 onClick={() => onOpenModal("AddItemModal")}
               >
@@ -49,8 +49,8 @@ function Header({ locationValue, onOpenModal, loggedIn }) {
               <div>{name}</div>
             </Link>
             {currentAvatar ? (
-              <div className="header__avatar-image">
-                <img src={avatar} alt="" />
+              <div>
+                <img src={avatar} alt="" className="header__avatar-image" />
               </div>
             ) : (
               <p className="header__avatar-default">{name[0].toUpperCase()}</p>

@@ -68,3 +68,7 @@
   font-weight: 700;
   text-decoration: none;
 }
+
+.modal__text-inputs {
+  display: flex;
+}

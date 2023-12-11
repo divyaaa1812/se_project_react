@@ -13,8 +13,12 @@ const SideBar = ({ onOpenModal, handleEditProfileModal, onLogout }) => {
   return (
     <>
       <div className="sidebar__user-info-container">
-        <div className="sidebar__avatar-image">
-          <img src={currentUser?.avatar} alt="user profile" />
+        <div>
+          <img
+            src={currentUser?.avatar}
+            alt="user profile"
+            className="sidebar__avatar-image"
+          />
         </div>
         <div>
           <Link to="/profile" className="sidebar__profile-info">
