@@ -26,7 +26,7 @@ const Profile = ({
           clothingItems={clothingItems}
           onOpenModal={onOpenModal}
           loggedIn={loggedIn}
-          onCardLike={() => onCardLike()}
+          onCardLike={onCardLike}
         />
       </section>
     </div>

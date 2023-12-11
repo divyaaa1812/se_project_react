@@ -29,6 +29,7 @@
   font-family: "CabinetGrotesk";
   font-weight: 700;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .sidebar__profile-info {

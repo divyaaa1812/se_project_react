@@ -228,6 +228,7 @@ function App() {
   };
 
   const handleLikeClick = (selectedCard) => {
+    debugger;
     const { isLiked } = selectedCard;
     const token = localStorage.getItem("jwt");
     // Check if this card is now liked
