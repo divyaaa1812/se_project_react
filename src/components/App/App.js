@@ -263,8 +263,8 @@ function App() {
               weatherImage={weatherImage}
               onCardClick={handleCardClick}
               clothingItems={clothingItems}
-              onCardLike={handleLikeClick}
               loggedIn={loggedIn}
+              onCardLike={handleLikeClick}
             />
           </Route>
           <ProtectedRoute path="/profile" loggedIn={loggedIn}>

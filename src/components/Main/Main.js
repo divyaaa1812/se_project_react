@@ -13,7 +13,6 @@ function Main({
   onCardLike,
 }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  console.log(tempvalue);
   const temperatureData = tempvalue.temperatureValue;
   const temperatureInDigits =
     temperatureData && Math.round(temperatureData.temperatureValue);
@@ -22,7 +21,6 @@ function Main({
     (temperatureUnit && temperatureUnit.temperatureWithUnits)?.[
       currentTemperatureUnit
     ] || 900;
-  console.log(temp);
 
   const weatherType = useMemo(() => {
     if (currentTemperatureUnit === "F") {
