@@ -25,10 +25,10 @@ React JS, Express and Mango DB for backend
 
 - Backend repo : (https://github.com/divyaaa1812/se_project_express)
 
-  - open terminal and run Database server using command: json-server --watch db.json --id \_id --port 3001
-  - open website using link below
+  - To run backend MongoDB: Checkout backend github repo and run "npm start"
 
-[Link to the webpage](https://divyaaa1812.github.io/se_project_react)
+- Webpage Link
+  [Link to the webpage](https://divyaaa1812.github.io/se_project_react)
 
 ## sample logins:
 
