@@ -46,7 +46,6 @@ function Main({
   const filteredItems = clothingItems.filter((item) => {
     return item.weather.toLowerCase() === weatherType;
   });
-  console.log(filteredItems);
 
   return (
     <main className="main">
@@ -62,7 +61,7 @@ function Main({
                 key={item._id}
                 cardData={item}
                 onCardClick={onCardClick}
-                isLoggedIn={loggedIn}
+                loggedIn={loggedIn}
                 onCardLike={onCardLike}
               />
             );
