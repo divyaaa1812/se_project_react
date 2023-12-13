@@ -17,7 +17,7 @@ React JS, Express and Mango DB for backend
 
 ## Links
 
-- [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
+- [Figma Design](https://www.figma.com/file/bfVOvqlLmoKZ5lpro8WWBe/Sprint-14_-WTWR?type=design&node-id=0-1&mode=design&t=AyK9nBZxkx0rxisf-0)
 
 ### Website Link
 
