@@ -55,7 +55,7 @@ React JS, Express and Mango DB for backend
 
 ### Popup when click on Add Clothes button
 
-![Popup when click on Add Clothes button](C:\Users\divya\projects\se_project_react\Website\AddClothesPopup.png)
+![Popup when click on Add Clothes button](Website\AddClothesPopup.png)
 
 ### Popup when user clicks on garmet image
 
