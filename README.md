@@ -43,23 +43,23 @@ React JS, Express and Mango DB for backend
 
 ### Popup for User Registration
 
-![Popup for User Registration](C:\Users\divya\projects\se_project_react\Website\UserRegistrationform.png)
+![Popup for User Registration](https://github.com/divyaaa1812/se_project_react/blob/main/Website/UserRegistrationform.png)
 
 ### Popup for User Login
 
-![Popup for User Login](C:\Users\divya\projects\se_project_react\Website\Loginform.png)
+![Popup for User Login](https://github.com/divyaaa1812/se_project_react/blob/main/Website/Loginform.png)
 
 ### Homepage
 
-![Homepage](C:\Users\divya\projects\se_project_react\Website\Home.png)
+![Homepage](https://github.com/divyaaa1812/se_project_react/blob/main/Website/Home.png)
 
 ### Popup when click on Add Clothes button
 
-![Popup when click on Add Clothes button](Website\AddClothesPopup.png)
+![Popup when click on Add Clothes button](https://github.com/divyaaa1812/se_project_react/blob/main/Website/AddClothespopup.png)
 
 ### Popup when user clicks on garmet image
 
-![Popup when user clicks on garmet image](C:\Users\divya\projects\se_project_react\Website\cradItem.png)
+![Popup when user clicks on garmet image](https://github.com/divyaaa1812/se_project_react/blob/main/Website/cradItem.png)
 
 ### Future Enhancements
 
