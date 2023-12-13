@@ -13,7 +13,7 @@ The idea of the application is pretty simple - we make a call to an API, which t
 
 ## Technologies Used
 
-React JS, Mock server DB setup
+React JS, Express and Mango DB for backend
 
 ## Links
 
@@ -63,7 +63,6 @@ React JS, Mock server DB setup
 
 ### Future Enhancements
 
-- create a server with an API and user authorization (Express and Mango DB)
 - Display weather information based on user location.
 - Support for mobile apps
 
