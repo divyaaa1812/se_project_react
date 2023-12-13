@@ -65,6 +65,7 @@ React JS, Express and Mango DB for backend
 
 - Display weather information based on user location.
 - Support for mobile apps
+- Handle error message popups
 
 ### Limitations
 
