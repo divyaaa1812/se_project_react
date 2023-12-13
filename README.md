@@ -37,17 +37,29 @@ React JS, Mock server DB setup
 
 ### Images
 
-### Desktop View
+### Desktop View - Launch Page
 
 ![Desktop View](https://github.com/divyaaa1812/se_project_react/blob/main/Website/LaunchPage.png)
 
+### Popup for User Registration
+
+![Popup for User Registration](C:\Users\divya\projects\se_project_react\Website\UserRegistrationform.png)
+
+### Popup for User Login
+
+![Popup for User Login](C:\Users\divya\projects\se_project_react\Website\Loginform.png)
+
+### Homepage
+
+![Homepage](C:\Users\divya\projects\se_project_react\Website\Home.png)
+
 ### Popup when click on Add Clothes button
 
-![Popup when click on Add Clothes button](https://github.com/divyaaa1812/se_project_react/blob/main/Website/AddClothesPopup.png)
+![Popup when click on Add Clothes button](C:\Users\divya\projects\se_project_react\Website\AddClothesPopup.png)
 
 ### Popup when user clicks on garmet image
 
-![Popup when user clicks on garmet image](https://github.com/divyaaa1812/se_project_react/blob/main/Website/cardItem.png)
+![Popup when user clicks on garmet image](C:\Users\divya\projects\se_project_react\Website\cradItem.png)
 
 ### Future Enhancements
 
