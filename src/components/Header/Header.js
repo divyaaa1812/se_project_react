@@ -13,7 +13,7 @@ function Header({ locationValue, onOpenModal, loggedIn }) {
   const { currentUser } = useContext(CurrentUserContext);
   const avatar = currentUser.avatar;
   const name = currentUser.name;
-  const currentAvatar = avatar !== "" ? true : false;
+  const currentAvatar = avatar !== "";
 
   return (
     <header className="header">
@@ -48,7 +48,7 @@ function Header({ locationValue, onOpenModal, loggedIn }) {
             <Link className="header__name" to="/profile">
               <div>{name}</div>
             </Link>
-            {currentAvatar ? (
+            {!!currentAvatar ? (
               <div>
                 <img src={avatar} alt="" className="header__avatar-image" />
               </div>

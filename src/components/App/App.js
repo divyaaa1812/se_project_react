@@ -33,7 +33,7 @@ function App() {
   //Hook to open and closemodal
   const [openModal, setOpenModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
-  const [temp, setTemp] = useState({});
+  const [temp, setTemp] = useState(0);
   const [location, setLocation] = useState("");
   const [weatherImage, setWeatherImage] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -44,48 +44,30 @@ function App() {
   // to access browser stored content of a webpage for functional components
   const history = useHistory();
 
-  useEffect(() => {
-    async function fetchWeatherData() {
-      try {
-        const data = await getWeatherForecast();
-        const temperatureValue = getTemperatureValue(data);
-        const locationValue = getLocationValue(data);
-        const weatherIcon = getWeatherIcon(data);
-        setTemp({ temperatureValue });
-        setLocation(locationValue);
-        setWeatherImage(weatherIcon);
-      } catch (err) {
-        console.log(err);
-      }
+  async function fetchWeatherData() {
+    try {
+      const data = await getWeatherForecast();
+      const temperatureValue = getTemperatureValue(data);
+      const locationValue = getLocationValue(data);
+      const weatherIcon = getWeatherIcon(data);
+      setTemp({ temperatureValue });
+      setLocation(locationValue);
+      setWeatherImage(weatherIcon);
+    } catch (err) {
+      console.log(err);
     }
-    fetchWeatherData();
-  }, []);
+  }
 
-  useEffect(() => {
-    getItems()
-      .then((data) => {
-        setClothingItems(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  async function getClothingItems() {
+    try {
+      const data = await getItems();
+      setClothingItems(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-  useEffect(() => {
-    if (!openModal) return;
-
-    const handleEscClose = (e) => {
-      if (e.key === "Escape") {
-        handleCloseModal();
-      }
-    };
-    document.addEventListener("keydown", handleEscClose);
-    return () => {
-      document.removeEventListener("keydown", handleEscClose);
-    };
-  }, [openModal]);
-
-  useEffect(() => {
+  function getToken() {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
       auth
@@ -107,7 +89,26 @@ function App() {
           console.log(error);
         });
     }
+  }
+
+  useEffect(() => {
+    fetchWeatherData();
+    getClothingItems();
+    getToken();
   }, []);
+
+  useEffect(() => {
+    if (!openModal) return;
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        handleCloseModal();
+      }
+    };
+    document.addEventListener("keydown", handleEscClose);
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [openModal]);
 
   const handleOpenModal = (modalName) => {
     setOpenModal(modalName);
@@ -144,14 +145,6 @@ function App() {
         handleCloseModal();
       });
   };
-
-  // const handleSubmit = (request) => {
-  //   setIsLoading(true);
-  //   request()
-  //     .then(handleCloseModal)
-  //     .catch(console.error)
-  //     .finally(() => setIsLoading(false));
-  // };
 
   const handleSignUp = ({ name, avatar, email, password }) => {
     return auth
@@ -228,7 +221,6 @@ function App() {
   };
 
   const handleLikeClick = (selectedCard) => {
-    debugger;
     const { isLiked } = selectedCard;
     const token = localStorage.getItem("jwt");
     // Check if this card is now liked
@@ -237,7 +229,6 @@ function App() {
           .then((updatedCard) => {
             setClothingItems((cards) => {
               return cards.map((card) => {
-                console.log(card, selectedCard);
                 return card._id === selectedCard._id ? updatedCard.data : card;
               });
             });

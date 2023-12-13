@@ -3,11 +3,12 @@ import React, { useState, useEffect } from "react";
 
 const LoginModal = ({ handleCloseModal, onUserLogin, onOpenModal }) => {
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
 
-  const [password, setPassword] = useState("");
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
@@ -46,7 +47,7 @@ const LoginModal = ({ handleCloseModal, onUserLogin, onOpenModal }) => {
               value={email}
               onChange={handleEmailChange}
               required
-            ></input>
+            />
           </div>
         </label>
       </div>

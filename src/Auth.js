@@ -7,19 +7,15 @@ export const checkResponse = (res) => {
   }
 };
 
-//Register new user
 export const registerUser = ({ name, avatar, email, password }) => {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    //convert values to json string
     body: JSON.stringify({ name, avatar, email, password }),
   }).then(checkResponse);
 };
-
-// login user
 
 export const loginUser = ({ email, password }) => {
   return fetch(`${baseUrl}/signin`, {
@@ -31,7 +27,6 @@ export const loginUser = ({ email, password }) => {
   }).then(checkResponse);
 };
 
-//to get user jwt token
 export const verifyToken = (token) => {
   return fetch(`${baseUrl}/users/me`, {
     method: "GET",
@@ -41,8 +36,6 @@ export const verifyToken = (token) => {
     },
   }).then(checkResponse);
 };
-
-//edit profile
 
 export const editProfile = ({ name, avatar }) => {
   const token = localStorage.getItem("jwt");

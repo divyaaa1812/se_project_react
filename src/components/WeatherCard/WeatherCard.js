@@ -2,12 +2,6 @@ import "./WeatherCard.css";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
 function WeatherCard({ type, temperature = "" }) {
-  // const imageSrc = weatherConditions.filter((i) => {
-  //   return i.day === day && i.type === type;
-  // });
-
-  // const imageSrcUrl = imageSrc[0].url || "";
-
   return (
     <section className="weather__info" id="weather">
       <div className="weather__info-temp">{temperature}</div>

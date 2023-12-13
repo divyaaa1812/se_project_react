@@ -9,7 +9,6 @@ export const checkResponse = (res) => {
   }
 };
 
-//get items
 export const getItems = () => {
   return fetch(`${baseUrl}/items`, {
     method: "GET",
@@ -19,9 +18,7 @@ export const getItems = () => {
   }).then(checkResponse);
 };
 
-//add items
 export const addItem = ({ name, weather, imageUrl }) => {
-  console.log({ name, weather, imageUrl });
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
@@ -32,7 +29,6 @@ export const addItem = ({ name, weather, imageUrl }) => {
   }).then(checkResponse);
 };
 
-// Delete Items
 export const deleteItem = (selectedCard) => {
   return fetch(`${baseUrl}/items/${selectedCard._id} `, {
     method: "DELETE",
@@ -43,7 +39,6 @@ export const deleteItem = (selectedCard) => {
   }).then(checkResponse);
 };
 
-//add card like
 export const addCardLike = (selectedCard) => {
   const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/items/${selectedCard._id}/likes`, {
@@ -55,7 +50,6 @@ export const addCardLike = (selectedCard) => {
   }).then(checkResponse);
 };
 
-//remove card like
 export const removeCardLike = (selectedCard) => {
   const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/items/${selectedCard._id}/likes`, {

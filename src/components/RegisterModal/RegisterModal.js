@@ -5,21 +5,22 @@ import "./RegisterModal.css";
 const RegisterModal = ({ handleCloseModal, onRegisterUser, onOpenModal }) => {
   // set states for handling user input
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [avatar, setAvatarUrl] = useState("");
+
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
 
-  const [password, setPassword] = useState("");
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
 
-  const [name, setName] = useState("");
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
 
-  const [avatar, setAvatarUrl] = useState("");
   const handleAvatarChange = (e) => {
     setAvatarUrl(e.target.value);
   };
@@ -76,7 +77,7 @@ const RegisterModal = ({ handleCloseModal, onRegisterUser, onOpenModal }) => {
               value={password}
               onChange={handlePasswordChange}
               required
-            ></input>
+            />
           </div>
         </label>
       </div>
