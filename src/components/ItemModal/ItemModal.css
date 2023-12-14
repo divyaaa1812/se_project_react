@@ -18,7 +18,7 @@
   font-weight: 700;
 }
 
-.modal__preview-del-text {
+.modal__preview-del-btn {
   color: #ff4d00;
   border: none;
   background-color: white;
@@ -29,4 +29,12 @@
 .modal__preview-info {
   display: flex;
   justify-content: space-between;
+}
+
+.modal__preview-del-btn_visible {
+  visibility: visible;
+}
+
+.modal__preview-del-btn_hidden {
+  visibility: hidden;
 }

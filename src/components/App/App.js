@@ -278,9 +278,6 @@ function App() {
               onCardLike={handleLikeClick}
             />
           </ProtectedRoute>
-          {/* <Route exact path="">
-            {loggedIn ? <Redirect to="/profile" /> : <Redirect to="/" />}
-          </Route> */}
           <Route path="/signup">
             <RegisterModal
               handleCloseModal={handleCloseModal}
@@ -326,6 +323,7 @@ function App() {
             selectedCard={selectedCard}
             onClose={handleCloseModal}
             handleDeleteCard={handleDeleteCard}
+            loggedIn={loggedIn}
           />
         )}
         {openModal === "editProfile" && (
