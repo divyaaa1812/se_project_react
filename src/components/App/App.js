@@ -44,57 +44,58 @@ function App() {
   // to access browser stored content of a webpage for functional components
   const history = useHistory();
 
-  async function fetchWeatherData() {
-    try {
-      const data = await getWeatherForecast();
-      const temperatureValue = getTemperatureValue(data);
-      const locationValue = getLocationValue(data);
-      const weatherIcon = getWeatherIcon(data);
-      setTemp({ temperatureValue });
-      setLocation(locationValue);
-      setWeatherImage(weatherIcon);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  async function getClothingItems() {
-    try {
-      const data = await getItems();
-      setClothingItems(data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  function getToken() {
-    const jwt = localStorage.getItem("jwt");
-    if (jwt) {
-      auth
-        .verifyToken(jwt)
-        .then((res) => {
-          if (res) {
-            setLoggedIn(true);
-            setCurrentUser(res);
-          }
-        })
-        .then(() => {
-          if (currentUser) {
-            history.push("/profile");
-          } else {
-            history.push("/");
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  }
-
   useEffect(() => {
+    const getToken = async () => {
+      const jwt = localStorage.getItem("jwt");
+      try {
+        if (jwt) {
+          auth
+            .verifyToken(jwt)
+            .then((res) => {
+              if (res) {
+                setLoggedIn(true);
+                setCurrentUser(res);
+              }
+            })
+            .then(() => {
+              if (currentUser) {
+                history.push("/profile");
+              } else {
+                history.push("/");
+              }
+            });
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    const fetchWeatherData = async () => {
+      try {
+        const data = await getWeatherForecast();
+        const temperatureValue = await getTemperatureValue(data);
+        const locationValue = await getLocationValue(data);
+        const weatherIcon = await getWeatherIcon(data);
+        setTemp({ temperatureValue });
+        setLocation(locationValue);
+        setWeatherImage(weatherIcon);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    const getClothingItems = async () => {
+      try {
+        const data = await getItems();
+        setClothingItems(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    getToken();
     fetchWeatherData();
     getClothingItems();
-    getToken();
   }, []);
 
   useEffect(() => {

@@ -12,7 +12,7 @@ const ClothesSection = ({
 }) => {
   const { currentUser } = useContext(CurrentUserContext);
   const ownedItems = clothingItems.filter((currentUserOwnedItem) => {
-    return currentUserOwnedItem.owner === currentUser?._id;
+    return currentUserOwnedItem.owner === currentUser._id;
   });
 
   return (
