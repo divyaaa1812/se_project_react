@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 const ModalWithForm = ({
   children,
-  buttonText = "Add Text",
-  linkText = "Add link",
   title,
   name,
+  buttonText = "Add Text",
+  linkText = "Add link",
   onClose,
   isOpen,
   onSubmit,

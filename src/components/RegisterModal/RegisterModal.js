@@ -2,7 +2,13 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import React, { useState, useEffect } from "react";
 import "./RegisterModal.css";
 
-const RegisterModal = ({ handleCloseModal, onRegisterUser, onOpenModal }) => {
+const RegisterModal = ({
+  handleCloseModal,
+  onRegisterUser,
+  onOpenModal,
+  buttonText,
+  linkText,
+}) => {
   // set states for handling user input
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,8 +49,8 @@ const RegisterModal = ({ handleCloseModal, onRegisterUser, onOpenModal }) => {
     <ModalWithForm
       title={"Sign Up"}
       name="register"
-      buttonText="Next"
-      linkText=" or Log in"
+      buttonText={buttonText}
+      linkText={linkText}
       onClose={handleCloseModal}
       isOpen={onOpenModal}
       onSubmit={handleSubmit}

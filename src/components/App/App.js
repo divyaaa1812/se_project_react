@@ -307,16 +307,18 @@ function App() {
           <RegisterModal
             handleCloseModal={handleCloseModal}
             onRegisterUser={handleSignUp}
-            isOpen={handleOpenModal}
+            onOpenModal={handleOpenModal}
             buttonText={isLoading ? "Submtting..." : "Next"}
+            linkText={isLoading ? "LoggingIn..." : " or Log in"}
           />
         )}
         {openModal === "LoginModal" && (
           <LoginModal
             handleCloseModal={handleCloseModal}
             onUserLogin={handleUserLogin}
-            isOpen={openModal === "modle2"}
+            onOpenModal={handleOpenModal}
             buttonText={isLoading ? "LoggingIn..." : "LogIn"}
+            linkText={isLoading ? "Submtting..." : "or Register"}
           />
         )}
         {openModal === "previewModal" && (
