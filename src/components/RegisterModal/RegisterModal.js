@@ -7,7 +7,7 @@ const RegisterModal = ({
   onRegisterUser,
   onOpenModal,
   buttonText,
-  linkText,
+  altbuttonText,
 }) => {
   // set states for handling user input
   const [email, setEmail] = useState("");
@@ -33,7 +33,11 @@ const RegisterModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onRegisterUser({ name, avatar, email, password });
+    if (e.nativeEvent.submitter.name == "btn") {
+      onRegisterUser({ name, avatar, email, password });
+    } else if (e.nativeEvent.submitter.name == "altbtn") {
+      onOpenModal("LoginModal");
+    }
   };
 
   useEffect(() => {
@@ -50,7 +54,7 @@ const RegisterModal = ({
       title={"Sign Up"}
       name="register"
       buttonText={buttonText}
-      linkText={linkText}
+      altbuttonText={altbuttonText}
       onClose={handleCloseModal}
       isOpen={onOpenModal}
       onSubmit={handleSubmit}

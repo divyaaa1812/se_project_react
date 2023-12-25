@@ -1,13 +1,12 @@
 import "./ModalWithForm.css";
 import React from "react";
-import { Link } from "react-router-dom";
 
 const ModalWithForm = ({
   children,
   title,
   name,
-  buttonText = "Add Text",
-  linkText = "Add link",
+  buttonText = "Btn Text",
+  altbuttonText = "Alt btn text",
   onClose,
   isOpen,
   onSubmit,
@@ -24,12 +23,12 @@ const ModalWithForm = ({
         <form className="form" onSubmit={onSubmit}>
           <div>{children}</div>
           <div className="modal__button-container">
-            <button className="modal__button" type="submit">
+            <button className="modal__button" type="submit" name="btn">
               {buttonText}
             </button>
-            <Link to="/" className="modal__link">
-              {linkText}
-            </Link>
+            <button className="modal__alt-button" type="submit" name="altbtn">
+              {altbuttonText}
+            </button>
           </div>
         </form>
       </div>

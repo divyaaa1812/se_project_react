@@ -6,7 +6,7 @@ const LoginModal = ({
   onUserLogin,
   onOpenModal,
   buttonText,
-  linkText,
+  altbuttonText,
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,7 +21,10 @@ const LoginModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onUserLogin({ email, password });
+    // e.nativeEvent.submitter.name
+    if (e.nativeEvent.submitter.name == "btn") onUserLogin({ email, password });
+    else if (e.nativeEvent.submitter.name == "altbtn")
+      onOpenModal("SignupModal");
   };
 
   useEffect(() => {
@@ -36,7 +39,7 @@ const LoginModal = ({
       title={"Log In"}
       name="login"
       buttonText={buttonText}
-      linkText={linkText}
+      altbuttonText={altbuttonText}
       onClose={handleCloseModal}
       isOpen={onOpenModal}
       onSubmit={handleSubmit}

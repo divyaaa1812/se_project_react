@@ -309,7 +309,7 @@ function App() {
             onRegisterUser={handleSignUp}
             onOpenModal={handleOpenModal}
             buttonText={isLoading ? "Submtting..." : "Next"}
-            linkText={isLoading ? "LoggingIn..." : " or Log in"}
+            altbuttonText={isLoading ? "LoggingIn..." : " or Log in"}
           />
         )}
         {openModal === "LoginModal" && (
@@ -318,7 +318,7 @@ function App() {
             onUserLogin={handleUserLogin}
             onOpenModal={handleOpenModal}
             buttonText={isLoading ? "LoggingIn..." : "LogIn"}
-            linkText={isLoading ? "Submtting..." : "or Register"}
+            altbuttonText={isLoading ? "Submtting..." : "or Register"}
           />
         )}
         {openModal === "previewModal" && (
