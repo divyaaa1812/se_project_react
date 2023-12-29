@@ -39,9 +39,10 @@ export const deleteItem = (selectedCard) => {
   }).then(checkResponse);
 };
 
-export const addCardLike = (selectedCard) => {
+export const addCardLike = (item) => {
+  console.log(item);
   const token = localStorage.getItem("jwt");
-  return fetch(`${baseUrl}/items/${selectedCard._id}/likes`, {
+  return fetch(`${baseUrl}/items/${item._id}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -50,9 +51,9 @@ export const addCardLike = (selectedCard) => {
   }).then(checkResponse);
 };
 
-export const removeCardLike = (selectedCard) => {
+export const removeCardLike = (item) => {
   const token = localStorage.getItem("jwt");
-  return fetch(`${baseUrl}/items/${selectedCard._id}/likes`, {
+  return fetch(`${baseUrl}/items/${item._id}/likes`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

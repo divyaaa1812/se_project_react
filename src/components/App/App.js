@@ -221,28 +221,30 @@ function App() {
       });
   };
 
-  const handleLikeClick = (selectedCard) => {
-    const { isLiked } = selectedCard;
+  const handleLikeClick = (item, isLiked, currentUser) => {
+    console.log(isLiked);
     const token = localStorage.getItem("jwt");
     // Check if this card is now liked
-    isLiked
-      ? addCardLike(selectedCard)
+    !isLiked
+      ? addCardLike(item, currentUser, token)
           .then((updatedCard) => {
             setClothingItems((cards) => {
-              return cards.map((card) => {
-                return card._id === selectedCard._id ? updatedCard.data : card;
-              });
+              const newCards = cards.map((card) =>
+                card._id === item._id ? updatedCard.data : card
+              );
+              return newCards;
             });
           })
           .catch((err) => console.log(err))
       : // if not, send a request to remove the user's id from the card's likes array
-        removeCardLike(selectedCard)
+        removeCardLike(item, currentUser, token)
           .then((updatedCard) => {
-            setClothingItems((cards) =>
-              cards.map((card) =>
-                card._id === selectedCard._id ? updatedCard.data : card
-              )
-            );
+            setClothingItems((cards) => {
+              const newCards = cards.map((card) =>
+                card._id === item._id ? updatedCard.data : card
+              );
+              return newCards;
+            });
           })
           .catch((err) => console.log(err));
   };
