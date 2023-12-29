@@ -33,11 +33,14 @@ const RegisterModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (e.nativeEvent.submitter.name == "btn") {
-      onRegisterUser({ name, avatar, email, password });
-    } else if (e.nativeEvent.submitter.name == "altbtn") {
-      onOpenModal("LoginModal");
-    }
+    onRegisterUser({ name, avatar, email, password });
+    // if (e.nativeEvent.submitter.name == "btn") {
+    // } else if (e.nativeEvent.submitter.name == "altbtn") {
+    // }
+  };
+
+  const handleAltClick = (e) => {
+    onOpenModal("LoginModal");
   };
 
   useEffect(() => {
@@ -58,6 +61,7 @@ const RegisterModal = ({
       onClose={handleCloseModal}
       isOpen={onOpenModal}
       onSubmit={handleSubmit}
+      onAltClick={handleAltClick}
     >
       <div className="form__field">
         <label>

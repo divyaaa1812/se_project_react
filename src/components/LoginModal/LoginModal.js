@@ -22,9 +22,13 @@ const LoginModal = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     // e.nativeEvent.submitter.name
-    if (e.nativeEvent.submitter.name == "btn") onUserLogin({ email, password });
-    else if (e.nativeEvent.submitter.name == "altbtn")
-      onOpenModal("SignupModal");
+    onUserLogin({ email, password });
+    // if (e.nativeEvent.submitter.name == "btn")
+    // else if (e.nativeEvent.submitter.name == "altbtn")
+  };
+
+  const handleAltClick = (e) => {
+    onOpenModal("SignupModal");
   };
 
   useEffect(() => {
@@ -43,6 +47,7 @@ const LoginModal = ({
       onClose={handleCloseModal}
       isOpen={onOpenModal}
       onSubmit={handleSubmit}
+      onAltClick={handleAltClick}
     >
       <div className="form__field">
         <label>
