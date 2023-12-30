@@ -47,7 +47,6 @@ function App() {
   const getClothingItems = async () => {
     try {
       const data = await getItems();
-      console.log(data);
       setClothingItems(data);
     } catch (error) {
       console.error(error);
@@ -219,7 +218,6 @@ function App() {
   };
 
   const handleLikeClick = (item, isLiked, currentUser) => {
-    console.log(isLiked);
     const token = localStorage.getItem("jwt");
     // Check if this card is now liked
     !isLiked
