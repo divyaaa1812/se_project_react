@@ -5,6 +5,18 @@
 
 .card__item {
   position: relative;
+  max-width: 325px;
+  width: 100%;
+}
+
+.card__info {
+  position: absolute;
+  left: 120px;
+  top: 33px;
+  max-width: 119px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .card__image {
@@ -16,10 +28,7 @@
 }
 
 .card__name {
-  position: absolute;
   text-align: center;
-  left: 120px;
-  top: 33px;
   color: rgba(0, 0, 0, 0.6);
   font-family: "Cabinet Grotesk";
   font-size: 16px;
@@ -47,13 +56,6 @@
   gap: 20px;
   width: 100%;
   margin-top: 20px;
-}
-
-.card__like-btn {
-  position: absolute;
-  text-align: center;
-  right: 110px;
-  top: 35px;
 }
 
 .card__like-btn_visible {
