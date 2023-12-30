@@ -40,7 +40,6 @@ export const deleteItem = (selectedCard) => {
 };
 
 export const addCardLike = (item) => {
-  console.log(item);
   const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/items/${item._id}/likes`, {
     method: "PUT",
