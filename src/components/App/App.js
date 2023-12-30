@@ -44,32 +44,35 @@ function App() {
   // to access browser stored content of a webpage for functional components
   const history = useHistory();
 
+  const getClothingItems = async () => {
+    try {
+      const data = await getItems();
+      console.log(data);
+      setClothingItems(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   useEffect(() => {
     const getToken = async () => {
       const jwt = localStorage.getItem("jwt");
       try {
         if (jwt) {
-          auth
-            .verifyToken(jwt)
-            .then((res) => {
-              if (res) {
-                setLoggedIn(true);
-                setCurrentUser(res);
-              }
-            })
-            .then(() => {
-              if (currentUser) {
-                history.push("/profile");
-              } else {
-                history.push("/");
-              }
-            });
+          auth.verifyToken(jwt).then((res) => {
+            if (res) {
+              setLoggedIn(true);
+              setCurrentUser(res);
+              history.push("/profile");
+            } else {
+              setLoggedIn(false);
+              history.push("/");
+            }
+          });
         }
       } catch (error) {
         console.error(error);
       }
     };
-
     const fetchWeatherData = async () => {
       try {
         const data = await getWeatherForecast();
@@ -84,19 +87,14 @@ function App() {
       }
     };
 
-    const getClothingItems = async () => {
-      try {
-        const data = await getItems();
-        setClothingItems(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    getToken();
     fetchWeatherData();
+    getToken();
     getClothingItems();
   }, []);
+
+  useEffect(() => {
+    getClothingItems();
+  }, [currentUser]);
 
   useEffect(() => {
     if (!openModal) return;
@@ -135,8 +133,8 @@ function App() {
   const onAddItem = ({ name, weather, imageUrl }) => {
     setIsLoading(true);
     addItem({ name, weather, imageUrl })
-      .then((data) => {
-        setClothingItems([data, ...clothingItems]);
+      .then((response) => {
+        setClothingItems([response.data, ...clothingItems]);
       })
       .catch((err) => {
         console.error(err);
@@ -166,8 +164,7 @@ function App() {
       .then((res) => {
         const token = res.token;
         localStorage.setItem("jwt", res.token);
-        return auth.verifyToken(token).then((data) => {
-          const user = data._id;
+        return auth.verifyToken(token).then((user) => {
           setLoggedIn(true);
           setCurrentUser(user);
           handleCloseModal();
@@ -273,7 +270,9 @@ function App() {
           <ProtectedRoute path="/profile" loggedIn={loggedIn}>
             <Profile
               onCardClick={handleCardClick}
-              clothingItems={clothingItems}
+              clothingItems={clothingItems.sort((a, b) =>
+                a.createdAt > b.createdAt ? -1 : 1
+              )}
               onOpenModal={handleOpenModal}
               onEditProfileModal={handleEditProfileSubmit}
               onLogout={handleLogout}
