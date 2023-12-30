@@ -85,7 +85,6 @@ function App() {
         console.error(err);
       }
     };
-
     fetchWeatherData();
     getToken();
     getClothingItems();
@@ -182,9 +181,7 @@ function App() {
     setIsLoading(true);
     return auth
       .editProfile({ name, avatar })
-      .then((data) => {
-        const user = data._id;
-        console.log(user);
+      .then((user) => {
         setCurrentUser(user);
         handleCloseModal();
       })
