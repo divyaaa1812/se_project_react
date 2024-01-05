@@ -1,7 +1,7 @@
 import { checkResponse } from "./utils/Api";
 const baseUrl = "http://localhost:3001";
 
-function request(url, options) {
+export function request(url, options) {
   return fetch(url, options).then(checkResponse);
 }
 

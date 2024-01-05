@@ -1,3 +1,4 @@
+import { request } from "../Auth";
 const baseUrl = "http://localhost:3001";
 
 export const checkResponse = (res) => {
@@ -9,55 +10,55 @@ export const checkResponse = (res) => {
 };
 
 export const getItems = () => {
-  return fetch(`${baseUrl}/items`, {
+  return request(`${baseUrl}/items`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
-  }).then(checkResponse);
+  });
 };
 
 export const addItem = ({ name, weather, imageUrl }) => {
   const token = localStorage.getItem("jwt");
-  return fetch(`${baseUrl}/items`, {
+  return request(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, weather, imageUrl }),
-  }).then(checkResponse);
+  });
 };
 
 export const deleteItem = (selectedCard) => {
   const token = localStorage.getItem("jwt");
-  return fetch(`${baseUrl}/items/${selectedCard._id} `, {
+  return request(`${baseUrl}/items/${selectedCard._id} `, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  }).then(checkResponse);
+  });
 };
 
 export const addCardLike = (item) => {
   const token = localStorage.getItem("jwt");
-  return fetch(`${baseUrl}/items/${item._id}/likes`, {
+  return request(`${baseUrl}/items/${item._id}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  }).then(checkResponse);
+  });
 };
 
 export const removeCardLike = (item) => {
   const token = localStorage.getItem("jwt");
-  return fetch(`${baseUrl}/items/${item._id}/likes`, {
+  return request(`${baseUrl}/items/${item._id}/likes`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  }).then(checkResponse);
+  });
 };

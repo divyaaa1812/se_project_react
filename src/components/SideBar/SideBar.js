@@ -13,7 +13,7 @@ const SideBar = ({ onOpenModal, handleEditProfileModal, onLogout }) => {
         <div>
           <img
             src={currentUser?.avatar}
-            alt="user profile"
+            alt={`avatar of ${currentUser?.name}`}
             className="sidebar__avatar-image"
           />
         </div>

@@ -25,7 +25,11 @@ const ModalWithForm = ({
           {children}
           <div className="modal__button-container">
             <button className="modal__button">{buttonText}</button>
-            <button className="modal__alt-button" onClick={onAltClick}>
+            <button
+              className="modal__alt-button"
+              onClick={onAltClick}
+              type="button"
+            >
               {altbuttonText}
             </button>
           </div>
