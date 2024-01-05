@@ -1,9 +1,5 @@
-import { checkResponse } from "./utils/Api";
+import { request } from "./Api";
 const baseUrl = "http://localhost:3001";
-
-export function request(url, options) {
-  return fetch(url, options).then(checkResponse);
-}
 
 export const registerUser = ({ name, avatar, email, password }) => {
   return request(`${baseUrl}/signup`, {

@@ -23,7 +23,7 @@ import {
   addCardLike,
   removeCardLike,
 } from "../../utils/Api";
-import * as auth from "../../Auth";
+import * as auth from "../../utils/Auth";
 import ProtectedRoute from "../ProtectedRoute";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext ";
