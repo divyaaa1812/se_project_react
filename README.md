@@ -33,7 +33,7 @@ React JS, Express and Mango DB for backend
 ## sample logins:
 
 - db.1+test@gmail.com / pass123$
-- divyaaa1812@gmail.com / 123$
+- divyabharathi1881@gmail.com / pass123$
 
 ### Images
 
