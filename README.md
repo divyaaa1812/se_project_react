@@ -57,7 +57,7 @@ React JS, Express and Mango DB for backend
 
 ![Popup when click on Add Clothes button](https://github.com/divyaaa1812/se_project_react/blob/main/Website/AddClothespopup.png)
 
-### Popup when user clicks on garmet image
+### Popup when user clicks on image
 
 ![Popup when user clicks on garmet image](https://github.com/divyaaa1812/se_project_react/blob/main/Website/cradItem.png)
 
