@@ -50,7 +50,11 @@ function Header({ locationValue, onOpenModal, loggedIn }) {
             </Link>
             {!!currentAvatar ? (
               <div>
-                <img src={avatar} alt="" className="header__avatar-image" />
+                <img
+                  src={avatar}
+                  alt="profile picture"
+                  className="header__avatar-image"
+                />
               </div>
             ) : (
               <p className="header__avatar-default">{name[0].toUpperCase()}</p>

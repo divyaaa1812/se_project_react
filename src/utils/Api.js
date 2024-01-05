@@ -1,5 +1,4 @@
 const baseUrl = "http://localhost:3001";
-const token = localStorage.getItem("jwt");
 
 export const checkResponse = (res) => {
   if (res.ok) {
@@ -19,6 +18,7 @@ export const getItems = () => {
 };
 
 export const addItem = ({ name, weather, imageUrl }) => {
+  const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
@@ -30,6 +30,7 @@ export const addItem = ({ name, weather, imageUrl }) => {
 };
 
 export const deleteItem = (selectedCard) => {
+  const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/items/${selectedCard._id} `, {
     method: "DELETE",
     headers: {

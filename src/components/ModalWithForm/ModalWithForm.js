@@ -8,7 +8,7 @@ const ModalWithForm = ({
   buttonText = "Btn Text",
   altbuttonText = "",
   onClose,
-  isOpen,
+  onOpenModal,
   onSubmit,
   onAltClick,
 }) => {
@@ -19,14 +19,12 @@ const ModalWithForm = ({
           className="modal__close-button"
           type="button"
           onClick={onClose}
-        ></button>
+        />
         <h3 className="modal__header-title">{title}</h3>
         <form className="form" onSubmit={onSubmit}>
-          <div>{children}</div>
+          {children}
           <div className="modal__button-container">
-            <button className="modal__button" type="submit">
-              {buttonText}
-            </button>
+            <button className="modal__button">{buttonText}</button>
             <button className="modal__alt-button" onClick={onAltClick}>
               {altbuttonText}
             </button>

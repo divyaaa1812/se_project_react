@@ -6,9 +6,6 @@ import { useContext } from "react";
 
 const SideBar = ({ onOpenModal, handleEditProfileModal, onLogout }) => {
   const { currentUser } = useContext(CurrentUserContext);
-  const handleLogoutClick = () => {
-    onLogout();
-  };
 
   return (
     <>
@@ -38,7 +35,7 @@ const SideBar = ({ onOpenModal, handleEditProfileModal, onLogout }) => {
         <button
           className="profile__sidebar-button"
           type="button"
-          onClick={handleLogoutClick}
+          onClick={onLogout}
         >
           Log Out
         </button>

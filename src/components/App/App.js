@@ -90,9 +90,9 @@ function App() {
     getClothingItems();
   }, []);
 
-  useEffect(() => {
-    getClothingItems();
-  }, [currentUser]);
+  // useEffect(() => {
+  //   getClothingItems();
+  // }, [currentUser]);
 
   useEffect(() => {
     if (!openModal) return;
@@ -133,23 +133,22 @@ function App() {
     addItem({ name, weather, imageUrl })
       .then((response) => {
         setClothingItems([response.data, ...clothingItems]);
+        handleCloseModal();
       })
       .catch((err) => {
         console.error(err);
       })
       .finally(() => {
         setIsLoading(false);
-        handleCloseModal();
       });
   };
 
   const handleSignUp = ({ name, avatar, email, password }) => {
     return auth
       .registerUser({ name, avatar, email, password })
-      .then((user) => {
-        auth.loginUser({ email, password }).then(() => {
-          handleCloseModal();
-        });
+      .then(() => {
+        handleUserLogin({ email, password });
+        handleCloseModal();
       })
       .catch((err) => {
         console.error(err);
@@ -157,11 +156,12 @@ function App() {
   };
 
   const handleUserLogin = ({ email, password }) => {
+    setIsLoading(true);
     return auth
       .loginUser({ email, password })
       .then((res) => {
         const token = res.token;
-        localStorage.setItem("jwt", res.token);
+        localStorage.setItem("jwt", token);
         return auth.verifyToken(token).then((user) => {
           setLoggedIn(true);
           setCurrentUser(user);
@@ -169,9 +169,7 @@ function App() {
           history.push("/profile");
         });
       })
-      .catch((err) => {
-        console.error(err);
-      })
+      .catch(console.error)
       .finally(() => {
         setIsLoading(false);
       });
@@ -185,16 +183,14 @@ function App() {
         setCurrentUser(user);
         handleCloseModal();
       })
-      .catch((err) => {
-        console.error(err);
-      })
+      .catch(console.error)
       .finally(() => {
         setIsLoading(false);
       });
   };
 
   const handleLogout = () => {
-    setCurrentUser("");
+    setCurrentUser({});
     localStorage.removeItem("jwt");
     setLoggedIn(false);
     history.push("/");
@@ -209,9 +205,7 @@ function App() {
         setClothingItems(newClothesList);
         handleCloseModal();
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch(console.error);
   };
 
   const handleLikeClick = (item, isLiked, currentUser) => {
@@ -227,7 +221,7 @@ function App() {
               return newCards;
             });
           })
-          .catch((err) => console.log(err))
+          .catch(console.error)
       : // if not, send a request to remove the user's id from the card's likes array
         removeCardLike(item, currentUser, token)
           .then((updatedCard) => {
@@ -238,7 +232,7 @@ function App() {
               return newCards;
             });
           })
-          .catch((err) => console.log(err));
+          .catch(console.error);
   };
 
   return (
@@ -329,7 +323,7 @@ function App() {
           <EditProfileModal
             handleCloseModal={handleCloseModal}
             onEditProfile={handleEditProfileSubmit}
-            isOpen={handleOpenModal}
+            onOpenModal={handleOpenModal}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>

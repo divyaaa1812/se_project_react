@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext ";
 
-const EditProfileModal = ({ handleCloseModal, onEditProfile, isOpen }) => {
+const EditProfileModal = ({ handleCloseModal, onEditProfile, onOpenModal }) => {
   const token = localStorage.getItem("jwt");
 
   const [name, setName] = useState("");
@@ -24,11 +24,11 @@ const EditProfileModal = ({ handleCloseModal, onEditProfile, isOpen }) => {
   };
 
   useEffect(() => {
-    if (isOpen) {
+    if (onOpenModal) {
       setName(currentUser.name);
       setAvatar(currentUser.avatar);
     }
-  }, [isOpen]);
+  }, [onOpenModal]);
 
   return (
     <ModalWithForm
@@ -37,7 +37,7 @@ const EditProfileModal = ({ handleCloseModal, onEditProfile, isOpen }) => {
       buttonText="Save Changes"
       linkText=""
       onClose={handleCloseModal}
-      isOpen={isOpen}
+      onOpenModal={onOpenModal}
       onSubmit={handleSubmit}
     >
       <div className="form__field">
