@@ -21,12 +21,11 @@ React JS, Express and Mango DB for backend
 
 ### Website Link
 
-## Instructions to open webpage:
+## webpage:
+
+[Link to the webpage](https://divyaaa1812.github.io/se_project_react)
 
 - Backend repo : (https://github.com/divyaaa1812/se_project_express)
-
-- Webpage Link
-  [Link to the webpage](https://divyaaa1812.github.io/se_project_react)
 
 ## sample logins:
 
