@@ -18,13 +18,7 @@ React JS, Express and Mango DB for backend
 ## Links
 
 - [Figma Design](https://www.figma.com/file/bfVOvqlLmoKZ5lpro8WWBe/Sprint-14_-WTWR?type=design&node-id=0-1&mode=design&t=AyK9nBZxkx0rxisf-0)
-
-### Website Link
-
-## webpage:
-
-[Link to the webpage](https://divyaaa1812.github.io/se_project_react)
-
+- [Link to the webpage](https://divyaaa1812.github.io/se_project_react)
 - Backend repo : (https://github.com/divyaaa1812/se_project_express)
 
 ## sample logins:
