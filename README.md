@@ -25,8 +25,6 @@ React JS, Express and Mango DB for backend
 
 - Backend repo : (https://github.com/divyaaa1812/se_project_express)
 
-  - To run backend MongoDB: Checkout backend github repo and run "npm start"
-
 - Webpage Link
   [Link to the webpage](https://divyaaa1812.github.io/se_project_react)
 
