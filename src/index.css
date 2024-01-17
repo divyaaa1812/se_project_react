@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: CabinetGrotesk, serif;
   font-size: 20px;
+  background-color: #80808045;
 }
 
 @font-face {
