@@ -52,7 +52,7 @@ function Header({ locationValue, onOpenModal, loggedIn }) {
               <div>
                 <img
                   src={avatar}
-                  alt="profile picture"
+                  alt={`avatar of ${currentUser.name}`}
                   className="header__avatar-image"
                 />
               </div>
