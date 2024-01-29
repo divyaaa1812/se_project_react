@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build && scp -r -i ~/.ssh/id_ed25519 ./se_project_react/build/* divyaaa1812@wtwrdivya.crabdance.com:/home/divyaaa1812/frontend"
   },
   "eslintConfig": {
     "extends": [
