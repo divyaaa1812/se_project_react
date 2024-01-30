@@ -50,7 +50,7 @@ function App() {
       console.log(data);
       setClothingItems(data);
     } catch (error) {
-      console.error(error);
+      console.error;
     }
   };
   useEffect(() => {
@@ -70,7 +70,7 @@ function App() {
           });
         }
       } catch (error) {
-        console.log(error);
+        console.error;
       }
     };
     const fetchWeatherData = async () => {
@@ -83,7 +83,7 @@ function App() {
         setLocation(locationValue);
         setWeatherImage(weatherIcon);
       } catch (err) {
-        console.log(err);
+        console.error;
       }
     };
     fetchWeatherData();
@@ -133,7 +133,7 @@ function App() {
         handleCloseModal();
       })
       .catch((err) => {
-        console.error(err);
+        console.error;
       })
       .finally(() => {
         setIsLoading(false);
@@ -148,7 +148,7 @@ function App() {
         handleCloseModal();
       })
       .catch((err) => {
-        console.error(err);
+        console.error;
       });
   };
 
