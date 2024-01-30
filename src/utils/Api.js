@@ -1,11 +1,9 @@
-// const baseUrl = "http://localhost:3001";
+// export const baseUrl = "http://localhost:3001";
 
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "www.wtwrdivya.crabdance.com"
+    ? "https://api.wtwrdivya.crabdance.com"
     : "http://localhost:3001";
-
-// deployed-backend-url is the URL that points to your deployed back end
 
 export const checkResponse = (res) => {
   if (res.ok) {

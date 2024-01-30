@@ -1,9 +1,4 @@
-import { request } from "./Api";
-// const baseUrl = "http://localhost:3001";
-const baseUrl =
-  process.env.NODE_ENV === "production"
-    ? "www.wtwrdivya.crabdance.com"
-    : "http://localhost:3001";
+import { request, baseUrl } from "../utils/Api";
 
 export const registerUser = ({ name, avatar, email, password }) => {
   return request(`${baseUrl}/signup`, {

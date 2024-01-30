@@ -47,6 +47,7 @@ function App() {
   const getClothingItems = async () => {
     try {
       const data = await getItems();
+      console.log(data);
       setClothingItems(data);
     } catch (error) {
       console.error(error);
@@ -69,7 +70,7 @@ function App() {
           });
         }
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
     };
     const fetchWeatherData = async () => {
@@ -82,17 +83,13 @@ function App() {
         setLocation(locationValue);
         setWeatherImage(weatherIcon);
       } catch (err) {
-        console.error(err);
+        console.log(err);
       }
     };
     fetchWeatherData();
     getToken();
     getClothingItems();
   }, []);
-
-  // useEffect(() => {
-  //   getClothingItems();
-  // }, [currentUser]);
 
   useEffect(() => {
     if (!openModal) return;
