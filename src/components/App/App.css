@@ -1,9 +1,13 @@
 .input-field {
-  width: 400px;
-  border-top: none;
-  border-bottom: 1px solid;
-  border-left: 0px;
-  border-right: 0px;
+  border: none;
+  border-bottom: 1px solid #000;
+  font-family: Cabinet-Grotesk, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  padding-top: 10px;
+  max-width: 400px;
+  width: 100%;
 }
 
 .form__field {

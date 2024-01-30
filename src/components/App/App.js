@@ -48,9 +48,7 @@ function App() {
     try {
       const data = await getItems();
       setClothingItems(data);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
   useEffect(() => {
     const getToken = async () => {
