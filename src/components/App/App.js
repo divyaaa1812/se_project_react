@@ -47,7 +47,6 @@ function App() {
   const getClothingItems = async () => {
     try {
       const data = await getItems();
-      console.log(data);
       setClothingItems(data);
     } catch (error) {
       console.log(error);
