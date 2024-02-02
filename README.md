@@ -26,7 +26,7 @@ The project integrates a weather API to provide real-time weather information, e
 
 ## [Figma Design](https://www.figma.com/file/bfVOvqlLmoKZ5lpro8WWBe/Sprint-14_-WTWR?type=design&node-id=0-1&mode=design&t=AyK9nBZxkx0rxisf-0)
 
-- Backend repo : (https://github.com/divyaaa1812/se_project_express)
+## [Backend repo](https://github.com/divyaaa1812/se_project_express)
 
 ## sample logins:
 
