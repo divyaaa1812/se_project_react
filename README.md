@@ -2,15 +2,11 @@
 
 ### Overview
 
-## About the project
-
-## Tech Stack
-
-## Website Link
-
-## Future Enhancements
-
-## Limitations
+- About the project
+- Tech Stack
+- Website Link
+- Future Enhancements
+- Limitations
 
 ## About the project
 
