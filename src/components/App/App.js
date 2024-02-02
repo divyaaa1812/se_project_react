@@ -123,6 +123,7 @@ function App() {
   };
 
   const onAddItem = ({ name, weather, imageUrl }) => {
+    debugger;
     setIsLoading(true);
     addItem({ name, weather, imageUrl })
       .then((response) => {

@@ -14,6 +14,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, onOpenModal }) => {
 
   const [weather, setWeatherTypeValue] = useState("");
   const handleRadioButton = (e) => {
+    debugger;
     setWeatherTypeValue(e.currentTarget.value);
   };
 
@@ -80,7 +81,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, onOpenModal }) => {
               <input
                 name="weatherType"
                 type="radio"
-                value="Hot"
+                value="hot"
                 onChange={handleRadioButton}
               />
               Hot
@@ -91,7 +92,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, onOpenModal }) => {
               <input
                 name="weatherType"
                 type="radio"
-                value="Warm"
+                value="warm"
                 onChange={handleRadioButton}
               />
               Warm
@@ -102,7 +103,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, onOpenModal }) => {
               <input
                 name="weatherType"
                 type="radio"
-                value="Cold"
+                value="cold"
                 onChange={handleRadioButton}
               />
               Cold
