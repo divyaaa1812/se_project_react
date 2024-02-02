@@ -62,20 +62,16 @@ function Main({
         </div>
         <div className="card__items">
           {filteredItems.map((item) => {
-            {
-              ownedItems.map((ownedCard) => {
-                return (
-                  <ItemCard
-                    key={ownedCard._id}
-                    cardData={item}
-                    onCardClick={onCardClick}
-                    loggedIn={loggedIn}
-                    onCardLike={onCardLike}
-                    isLiked={isLiked}
-                  />
-                );
-              });
-            }
+            return (
+              <ItemCard
+                key={item._id}
+                cardData={item}
+                onCardClick={onCardClick}
+                loggedIn={loggedIn}
+                onCardLike={onCardLike}
+                isLiked={isLiked}
+              />
+            );
           })}
         </div>
       </section>
