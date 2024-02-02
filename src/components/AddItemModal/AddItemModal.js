@@ -14,7 +14,6 @@ const AddItemModal = ({ handleCloseModal, onAddItem, onOpenModal }) => {
 
   const [weather, setWeatherTypeValue] = useState("");
   const handleRadioButton = (e) => {
-    debugger;
     setWeatherTypeValue(e.currentTarget.value);
   };
 

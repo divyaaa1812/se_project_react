@@ -3,6 +3,7 @@ import "./Main.css";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext ";
 
 function Main({
   tempvalue,
@@ -47,6 +48,10 @@ function Main({
   const filteredItems = clothingItems.filter((item) => {
     return item.weather.toLowerCase() === weatherType;
   });
+  const currentUser = useContext(CurrentUserContext);
+  const ownedItems = clothingItems.filter((currentUserOwnedItem) => {
+    return currentUserOwnedItem.owner === currentUser._id;
+  });
 
   return (
     <main className="main">
@@ -57,16 +62,20 @@ function Main({
         </div>
         <div className="card__items">
           {filteredItems.map((item) => {
-            return (
-              <ItemCard
-                key={item._id}
-                cardData={item}
-                onCardClick={onCardClick}
-                loggedIn={loggedIn}
-                onCardLike={onCardLike}
-                isLiked={isLiked}
-              />
-            );
+            {
+              ownedItems.map((ownedCard) => {
+                return (
+                  <ItemCard
+                    key={ownedCard._id}
+                    cardData={item}
+                    onCardClick={onCardClick}
+                    loggedIn={loggedIn}
+                    onCardLike={onCardLike}
+                    isLiked={isLiked}
+                  />
+                );
+              });
+            }
           })}
         </div>
       </section>
