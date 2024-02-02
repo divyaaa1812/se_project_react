@@ -25,7 +25,7 @@ function Main({
     ] || 900;
 
   const weatherType = useMemo(() => {
-    if (currentTemperatureUnit === "F") {
+    if (currentTemperatureUnit === "F" && currentTemperatureUnit === "C") {
       if (temperatureInDigits >= 86) {
         return "hot";
       } else if (temperatureInDigits >= 66 && temperatureInDigits <= 85) {
