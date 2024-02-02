@@ -34,7 +34,6 @@ const AddItemModal = ({ handleCloseModal, onAddItem, onOpenModal }) => {
     <ModalWithForm
       title={"New garment"}
       name="addnewgarment"
-      buttonText="Add garmet"
       linkText=""
       onClose={handleCloseModal}
       isOpen={onOpenModal}
@@ -110,6 +109,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, onOpenModal }) => {
           </div>
         </div>
       </div>
+      <button className="modal__button">Add garmet</button>
     </ModalWithForm>
   );
 };

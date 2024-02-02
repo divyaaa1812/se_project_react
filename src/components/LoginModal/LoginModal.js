@@ -81,6 +81,16 @@ const LoginModal = ({
           </div>
         </label>
       </div>
+      <div className="modal__button-container">
+        <button className="modal__button">{buttonText}</button>
+        <button
+          className="modal__alt-button"
+          onClick={handleAltClick}
+          type="button"
+        >
+          {altbuttonText}
+        </button>
+      </div>
     </ModalWithForm>
   );
 };

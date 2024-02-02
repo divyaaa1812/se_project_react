@@ -70,6 +70,9 @@ const EditProfileModal = ({ handleCloseModal, onEditProfile, onOpenModal }) => {
           ></input>
         </label>
       </div>
+      <div className="modal__button-container">
+        <button className="modal__button">Save changes</button>
+      </div>
     </ModalWithForm>
   );
 };
