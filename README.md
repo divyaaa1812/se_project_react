@@ -14,13 +14,13 @@ Hello there! I'm Divya. As a passionate developer and fashion enthusiast, I emba
 
 My mission is to simplify the daily dilemma of choosing the perfect outfit. What to Wear app is here to offer personalized suggestions based on your preferences and the weather forecast.
 
-The idea behind implementing this is, we make a call to an API which then responds with the daily weather forecast. We collect the weather data, process it, and then based on the forecast, we recommend suitable clothing to the user.
+The idea behind implementing this is, we make use of weather API which responds with the daily weather forecast. We collect the weather data, process it, and then based on the forecast, we recommend suitable clothing to the user.
 
 ## Tech Stack
 
 On the backend, What to Wear web application is powered by Express.js and MongoDB
 The frontend, crafted with React JS, provides a delightful user interface
-The integration of weather APIs ensures that your outfit suggestions are tailored to the current conditions, keeping you both stylish and weather-ready.
+The project integrates a weather API to provide real-time weather information, enhancing the accuracy of outfit recommendations
 
 ## [Link to the webpage](https://wtwrdivya.crabdance.com/#/)
 
