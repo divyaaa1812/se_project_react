@@ -53,7 +53,7 @@
 
 .card__items {
   display: grid;
-  gap: 10px;
+  gap: 20px;
   grid-template-rows: auto;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
