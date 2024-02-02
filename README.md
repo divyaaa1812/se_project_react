@@ -18,9 +18,9 @@ The idea behind implementing this is, we make use of weather API which responds 
 
 ## Tech Stack
 
-On the backend, What to Wear web application is powered by Express.js and MongoDB
-The frontend, crafted with React JS, provides a delightful user interface
-The project integrates a weather API to provide real-time weather information, enhancing the accuracy of outfit recommendations
+On the backend, What to Wear web application is powered by Express.js and MongoDB.
+The frontend, crafted with React JS, provides a delightful user interface.
+The project integrates a weather API to provide real-time weather information, enhancing the accuracy of outfit recommendations.
 
 ## [Link to the webpage](https://wtwrdivya.crabdance.com/#/)
 
