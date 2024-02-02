@@ -10,13 +10,15 @@
 }
 
 .card__info {
-  position: absolute;
-  left: 120px;
-  top: 33px;
-  max-width: 119px;
-  width: 100%;
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
+  left: 65px;
+  max-width: 119px;
+  position: absolute;
+  top: 33px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .card__image {
