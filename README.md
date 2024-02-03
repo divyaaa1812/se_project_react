@@ -33,7 +33,6 @@ The project integrates a weather API to provide real-time weather information, e
 Dev environment
 
 - db.1+test@gmail.com / pass123$
-- divyabharathi1881@gmail.com / pass123$
 
 Production env
 
