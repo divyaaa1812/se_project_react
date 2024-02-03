@@ -48,10 +48,11 @@ function Main({
   const filteredItems = clothingItems.filter((item) => {
     return item.weather.toLowerCase() === weatherType;
   });
-  const currentUser = useContext(CurrentUserContext);
-  const ownedItems = clothingItems.filter((currentUserOwnedItem) => {
+  const { currentUser } = useContext(CurrentUserContext);
+  const currentUserOwnedItems = filteredItems.filter((currentUserOwnedItem) => {
     return currentUserOwnedItem.owner === currentUser._id;
   });
+  console.log(loggedIn);
 
   return (
     <main className="main">
@@ -60,20 +61,37 @@ function Main({
         <div className="card__section-title">
           Today is {temp} / You may want to wear:
         </div>
-        <div className="card__items">
-          {filteredItems.map((item) => {
-            return (
-              <ItemCard
-                key={item._id}
-                cardData={item}
-                onCardClick={onCardClick}
-                loggedIn={loggedIn}
-                onCardLike={onCardLike}
-                isLiked={isLiked}
-              />
-            );
-          })}
-        </div>
+        {loggedIn ? (
+          <div className="card__items">
+            {currentUserOwnedItems.map((item) => {
+              return (
+                <ItemCard
+                  key={item._id}
+                  cardData={item}
+                  onCardClick={onCardClick}
+                  loggedIn={loggedIn}
+                  onCardLike={onCardLike}
+                  isLiked={isLiked}
+                />
+              );
+            })}
+          </div>
+        ) : (
+          <div className="card__items">
+            {filteredItems.map((item) => {
+              return (
+                <ItemCard
+                  key={item._id}
+                  cardData={item}
+                  onCardClick={onCardClick}
+                  loggedIn={loggedIn}
+                  onCardLike={onCardLike}
+                  isLiked={isLiked}
+                />
+              );
+            })}
+          </div>
+        )}
       </section>
     </main>
   );
