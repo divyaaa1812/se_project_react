@@ -59,7 +59,7 @@ function Main({
       <WeatherCard type={weatherImage} temperature={temp} />
       <section className="card__section">
         <div className="card__section-title">
-          Today is {temp} / You may want to wear:
+          Today is {temp} / You may want to wear
         </div>
         {loggedIn ? (
           <div className="card__items">
