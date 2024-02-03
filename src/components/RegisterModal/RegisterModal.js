@@ -34,14 +34,17 @@ const RegisterModal = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     onRegisterUser({ name, avatar, email, password });
-    // if (e.nativeEvent.submitter.name == "btn") {
-    // } else if (e.nativeEvent.submitter.name == "altbtn") {
-    // }
   };
 
   const handleAltClick = (e) => {
     onOpenModal("LoginModal");
   };
+
+  const enabled =
+    email.length > 0 &&
+    password.length > 0 &&
+    name.length > 0 &&
+    avatar.length > 0;
 
   useEffect(() => {
     if (onOpenModal) {
@@ -126,7 +129,9 @@ const RegisterModal = ({
         </label>
       </div>
       <div className="modal__button-container">
-        <button className="modal__button">{buttonText}</button>
+        <button className="modal__button" disabled={!enabled}>
+          {buttonText}
+        </button>
         <button
           className="modal__alt-button"
           onClick={handleAltClick}

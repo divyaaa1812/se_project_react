@@ -35,6 +35,8 @@ const LoginModal = ({
     }
   }, [onOpenModal]);
 
+  const enabled = email.length > 0 && password.length > 0;
+
   return (
     <ModalWithForm
       title={"Log In"}
@@ -79,7 +81,9 @@ const LoginModal = ({
         </label>
       </div>
       <div className="modal__button-container">
-        <button className="modal__button">{buttonText}</button>
+        <button className="modal__button" disabled={!enabled}>
+          {buttonText}
+        </button>
         <button
           className="modal__alt-button"
           onClick={handleAltClick}
