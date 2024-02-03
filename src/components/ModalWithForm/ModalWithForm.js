@@ -5,8 +5,6 @@ const ModalWithForm = ({
   children,
   title,
   name,
-  buttonText = "Btn Text",
-  altbuttonText = "",
   onClose,
   onOpenModal,
   onSubmit,

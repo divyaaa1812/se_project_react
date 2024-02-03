@@ -21,10 +21,7 @@ const LoginModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // e.nativeEvent.submitter.name
     onUserLogin({ email, password });
-    // if (e.nativeEvent.submitter.name == "btn")
-    // else if (e.nativeEvent.submitter.name == "altbtn")
   };
 
   const handleAltClick = (e) => {

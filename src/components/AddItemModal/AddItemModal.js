@@ -29,12 +29,11 @@ const AddItemModal = ({ handleCloseModal, onAddItem, onOpenModal }) => {
       setImageUrl("");
     }
   }, [onOpenModal]);
-
+  const enabled = name.length > 0 && imageUrl.length > 0 && weather.length > 0;
   return (
     <ModalWithForm
       title={"New garment"}
       name="addnewgarment"
-      linkText=""
       onClose={handleCloseModal}
       isOpen={onOpenModal}
       onSubmit={handleSubmit}
@@ -109,7 +108,9 @@ const AddItemModal = ({ handleCloseModal, onAddItem, onOpenModal }) => {
           </div>
         </div>
       </div>
-      <button className="modal__button">Add garmet</button>
+      <button disabled={!enabled} className="modal__button">
+        Add garmet
+      </button>
     </ModalWithForm>
   );
 };
