@@ -46,7 +46,6 @@ const LoginModal = ({
       onClose={handleCloseModal}
       isOpen={onOpenModal}
       onSubmit={handleSubmit}
-      onAltClick={handleAltClick}
     >
       <div className="form__field">
         <label>
