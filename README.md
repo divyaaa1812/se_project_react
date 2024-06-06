@@ -14,7 +14,7 @@ Hello there! I'm Divya. As a passionate developer and fashion enthusiast, I emba
 
 My mission is to simplify the daily dilemma of choosing the perfect outfit. What to Wear app is here to offer personalized suggestions based on your preferences and the weather forecast.
 
-The idea behind implementing this is, we make use of weather API which responds with the daily weather forecast. We collect the weather data, process it, and then based on the forecast, we recommend suitable clothing to the user.
+The idea behind implementing this is, to make use of weather API which responds with the daily weather forecast. Collect the weather data, process it, and then based on the forecast and recommend suitable clothing to the user.
 
 ## Tech Stack
 
